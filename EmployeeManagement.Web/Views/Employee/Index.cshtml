@@ -1,0 +1,45 @@
+﻿@model IEnumerable<EmployeeManagement.Application.Features.Employees.DTOs.EmployeeDto>
+
+<h1>Liste des Employés</h1>
+
+<a href="/employee/export" class="btn btn-success">Exporter vers Excel</a>
+<a href="/employee/export/pdf" class="btn btn-danger">Exporter vers PDF</a>
+<a href="/employee/create" class="btn btn-primary">Ajouter un Employé</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Prénom</th>
+            <th>Nom</th>
+            <th>Poste</th>
+            <th>Salaire</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Any())
+        {
+            foreach (var employee in Model)
+            {
+                <tr>
+                    <td>@employee.Id</td>
+                    <td>@employee.FirstName</td>
+                    <td>@employee.LastName</td>
+                    <td>@employee.Position</td>
+                    <td>@employee.Salary</td>
+                    <td>
+                        <a href="/employee/edit/@employee.Id" class="btn btn-warning">Modifier</a>
+                        <a href="/employee/details/@employee.Id" class="btn btn-info">Détails</a>
+                    </td>
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="6" class="text-center">Aucun employé trouvé.</td>
+            </tr>
+        }
+    </tbody>
+</table>
