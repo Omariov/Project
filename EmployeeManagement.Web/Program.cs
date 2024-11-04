@@ -1,12 +1,12 @@
-using EmployeeManagement.Infrastructure;
-using Microsoft.Extensions.Configuration;
-using Microsoft.EntityFrameworkCore;
-using EmployeeManagement.Application.Features.Employees.Commands;
-using MediatR;
-using EmployeeManagement.Web.Services;
 using DinkToPdf;
 using DinkToPdf.Contracts;
-using System.IO; // Assurez-vous d'importer System.IO
+using EmployeeManagement.Application.Features.Employees.Commands;
+using EmployeeManagement.Application.Services;
+using EmployeeManagement.Infrastructure;
+using EmployeeManagement.Web.Services;
+using MediatR;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -16,20 +16,28 @@ var pdfTools = new PdfTools();
 // Créez une instance de SynchronizedConverter en utilisant PdfTools
 var converter = new SynchronizedConverter(pdfTools);
 
-
-builder.Services.AddSingleton(typeof(IConverter), converter);
+builder.Services.AddSingleton<IConverter>(converter);
 builder.Services.AddSingleton<RazorViewToStringRenderer>();
-
 
 // Add services to the container.
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();
 builder.Services.AddControllersWithViews();
 
+// Enregistrement du PasswordHasher
+builder.Services.AddScoped<IPasswordHashage, PasswordHashage>();
 
 // Configure Entity Framework with SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
+// Configuration de l'authentification par cookie
+builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options =>
+    {
+        options.LoginPath = "/employees/login"; // Chemin de la page de connexion
+        options.AccessDeniedPath = "/employees/accessdenied"; // Chemin pour l'accès refusé
+    });
 
 // Add MediatR for dependency injection
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblyContaining<CreateEmployeeCommand>());
@@ -39,7 +47,7 @@ builder.Services.AddTransient<ExcelService>();
 builder.Services.AddTransient<PdfService>();
 
 // Register IHttpContextAccessor
-builder.Services.AddHttpContextAccessor(); // Assurez-vous d'ajouter ceci pour utiliser IHttpContextAccessor
+builder.Services.AddHttpContextAccessor();
 
 // Add Swagger services
 builder.Services.AddEndpointsApiExplorer();
@@ -59,6 +67,8 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
+// Activez l'authentification
+app.UseAuthentication();
 app.UseAuthorization();
 
 // Enable middleware to serve generated Swagger as a JSON endpoint at /swagger
@@ -72,11 +82,10 @@ app.UseSwaggerUI(c =>
 // Set default route to load Index.cshtml
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/Index");
+    context.Response.Redirect("/employees"); // Modifiez pour rediriger vers la page des employés par défaut
     return Task.CompletedTask;
 });
 
 app.MapRazorPages();
 app.MapControllers();
-
 app.Run();

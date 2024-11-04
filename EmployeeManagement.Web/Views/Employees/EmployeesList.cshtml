@@ -2,11 +2,18 @@
 
 <h1>Liste des Employés</h1>
 
+<!-- Boutons de navigation pour Login et Register -->
+<div class="mb-3">
+    <a href="/account/login" class="btn btn-secondary">Se connecter</a>
+    <a href="/account/register" class="btn btn-primary">Créer un compte</a>
+</div>
+
+<!-- Boutons d'exportation et de création d'employés -->
 <a href="/employee/export" class="btn btn-success">Exporter vers Excel</a>
 <a href="/employee/export/pdf" class="btn btn-danger">Exporter vers PDF</a>
-<a href="/employee/create" class="btn btn-primary">Ajouter un Employé</a>
+<a href="/api/employees/create" class="btn btn-primary">Ajouter un Employé</a> <!-- Lien mis à jour pour correspondre à l'URL correcte -->
 
-<table class="table">
+<table class="table mt-3">
     <thead>
         <tr>
             <th>ID</th>

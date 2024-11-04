@@ -1,66 +1,55 @@
 ﻿using DinkToPdf;
 using DinkToPdf.Contracts;
 using EmployeeManagement.Application.Features.Employees.DTOs;
-using Microsoft.AspNetCore.Hosting; // Ajoutez ceci
-using System;
 using System.Collections.Generic;
-using System.IO; // Ajoutez ceci
-using System.Threading.Tasks;
+using System.IO;
 
 namespace EmployeeManagement.Web.Services
 {
     public class PdfService
     {
-        private readonly RazorViewToStringRenderer _razorRenderer;
-        private readonly IConverter _converter;
-        private readonly IWebHostEnvironment _hostingEnvironment; // Ajoutez ce champ
-
-        public PdfService(RazorViewToStringRenderer razorRenderer, IConverter converter, IWebHostEnvironment hostingEnvironment)
+        public byte[] ExportEmployeesToPdf(List<EmployeeDto> employees)
         {
-            _razorRenderer = razorRenderer;
-            _converter = converter;
-            _hostingEnvironment = hostingEnvironment; // Initialisez le champ
-        }
+            // Générer le HTML pour la table des employés
+            var htmlContent = "<html><head><style>" +
+                              "table { width: 100%; border-collapse: collapse; }" +
+                              "th, td { border: 1px solid black; padding: 8px; text-align: left; }" +
+                              "th { background-color: #f2f2f2; }" +
+                              "</style></head><body>" +
+                              "<h1>Liste des Employés</h1>" +
+                              "<table>" +
+                              "<tr><th>ID</th><th>Prénom</th><th>Nom</th><th>Poste</th><th>Salaire</th></tr>";
 
-        public async Task<byte[]> ExportEmployeesToPdf(List<EmployeeDto> employees)
-        {
-            try
+            foreach (var employee in employees)
             {
-                // Utilisez un chemin relatif
-                string templatePath = Path.Combine(_hostingEnvironment.ContentRootPath, "Views", "Employee", "EmployeePDF.cshtml");
+                htmlContent += $"<tr><td>{employee.Id}</td><td>{employee.FirstName}</td><td>{employee.LastName}</td><td>{employee.Position}</td><td>{employee.Salary}</td></tr>";
+            }
 
-                // Journaliser le chemin d'accès de la vue
-                Console.WriteLine($"Tentative de rendu de la vue à l'emplacement : {templatePath}");
+            htmlContent += "</table></body></html>";
 
-                // Rendre le contenu HTML à partir de la vue Razor
-                var htmlContent = await _razorRenderer.RenderViewToStringAsync(templatePath, employees);
-
-                // Configuration du document PDF
-                var doc = new HtmlToPdfDocument
-                {
-                    GlobalSettings = {
-                        ColorMode = ColorMode.Color,
-                        Orientation = Orientation.Portrait,
-                        PaperSize = PaperKind.A4,
-                    },
-                    Objects = {
-                        new ObjectSettings
-                        {
-                            HtmlContent = htmlContent,
-                            WebSettings = { DefaultEncoding = "utf-8" }
-                        }
+            // Utiliser DinkToPdf pour générer le PDF à partir du HTML
+            var converter = new SynchronizedConverter(new PdfTools());
+            var doc = new HtmlToPdfDocument()
+            {
+                GlobalSettings = {
+                    ColorMode = ColorMode.Color,
+                    Orientation = Orientation.Portrait,
+                    PaperSize = PaperKind.A4,
+                },
+                Objects = {
+                    new ObjectSettings()
+                    {
+                        HtmlContent = htmlContent,
+                        WebSettings = { DefaultEncoding = "utf-8" }
                     }
-                };
+                }
+            };
 
-                // Conversion du document en tableau d'octets
-                return _converter.Convert(doc);
-            }
-            catch (Exception ex)
-            {
-                // Journaliser l'erreur pour un débogage ultérieur
-                Console.WriteLine($"Erreur lors de la génération du PDF : {ex}");
-                throw new Exception($"Erreur lors de la génération du PDF : {ex.Message}", ex);
-            }
+            using var memoryStream = new MemoryStream();
+            var pdf = converter.Convert(doc);
+            memoryStream.Write(pdf, 0, pdf.Length);
+
+            return memoryStream.ToArray();
         }
     }
 }

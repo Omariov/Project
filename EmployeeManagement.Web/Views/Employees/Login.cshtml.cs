@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace EmployeeManagement.Web.Pages
+namespace EmployeeManagement.Web.Views.Employee
 {
-    public class EmployeePDFModel : PageModel
+    public class LoginModel : PageModel
     {
         public void OnGet()
         {
