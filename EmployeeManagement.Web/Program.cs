@@ -7,13 +7,17 @@ using EmployeeManagement.Web.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configure Serilog pour écrire les logs dans un fichier
+builder.Logging.ClearProviders();
+builder.Logging.AddConsole();
+builder.Logging.AddFile("Logs/log-{Date}.txt"); // Les logs seront enregistrés dans Logs avec un fichier par jour
+
 // Créez une instance de PdfTools
 var pdfTools = new PdfTools();
-
-// Créez une instance de SynchronizedConverter en utilisant PdfTools
 var converter = new SynchronizedConverter(pdfTools);
 
 builder.Services.AddSingleton<IConverter>(converter);
@@ -27,7 +31,7 @@ builder.Services.AddControllersWithViews();
 // Enregistrement du PasswordHasher
 builder.Services.AddScoped<IPasswordHashage, PasswordHashage>();
 
-// Configure Entity Framework with SQL Server
+// Configure Entity Framework avec SQL Server
 builder.Services.AddDbContext<ApplicationDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 
@@ -35,8 +39,8 @@ builder.Services.AddDbContext<ApplicationDbContext>(options =>
 builder.Services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
     .AddCookie(options =>
     {
-        options.LoginPath = "/employees/login"; // Chemin de la page de connexion
-        options.AccessDeniedPath = "/employees/accessdenied"; // Chemin pour l'accès refusé
+        options.LoginPath = "/employees/login";
+        options.AccessDeniedPath = "/employees/accessdenied";
     });
 
 // Add MediatR for dependency injection
@@ -76,13 +80,13 @@ app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee Management API V1");
-    c.RoutePrefix = "swagger"; // Met `swagger` comme préfixe de l'URL pour éviter la redirection automatique vers Swagger
+    c.RoutePrefix = "swagger";
 });
 
 // Set default route to load Index.cshtml
 app.MapGet("/", context =>
 {
-    context.Response.Redirect("/employees"); // Modifiez pour rediriger vers la page des employés par défaut
+    context.Response.Redirect("/employees");
     return Task.CompletedTask;
 });
 

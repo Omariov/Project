@@ -10,44 +10,60 @@ namespace EmployeeManagement.Application.Features.Models.Commands
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public string ConfirmPassword { get; set; }
+
         public int RoleId { get; set; } // Si vous gérez les rôles
     }
 
     public class RegisterCommandHandler : IRequestHandler<RegisterCommand, int>
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPasswordHashage _passwordHasher; // Déclaration de l'interface pour le hashage
+        private readonly IPasswordHashage _passwordHasher;
 
         public RegisterCommandHandler(ApplicationDbContext context, IPasswordHashage passwordHasher)
         {
             _context = context;
-            _passwordHasher = passwordHasher; // Injection de dépendance
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<int> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
+            // Vérifier si l'utilisateur existe déjà
             var existingUser = await _context.Users
                 .FirstOrDefaultAsync(u => u.Username == request.Username);
 
             if (existingUser != null)
             {
-                throw new Exception("Username already exists."); // Gérer les erreurs de manière appropriée
+                throw new Exception("Le nom d'utilisateur existe déjà.");
             }
 
-            // Utilisation de votre PasswordHasher pour hasher le mot de passe
+            // Vérifier que le mot de passe n'est pas vide
+            if (string.IsNullOrWhiteSpace(request.Password))
+            {
+                throw new Exception("Le mot de passe ne peut pas être vide.");
+            }
+
+
+            if (request.Password != request.ConfirmPassword)
+            {
+                throw new Exception("Le mot de passe ne peut pas être vide.");
+            }
+            // Hachage du mot de passe
             var passwordHash = _passwordHasher.HashPassword(request.Password);
 
+            // Création de l'utilisateur
             var user = new User
             {
                 Username = request.Username,
                 PasswordHash = passwordHash,
-                RoleId = request.RoleId // Ajoutez une logique par défaut si nécessaire
+                RoleId = request.RoleId
             };
 
             _context.Users.Add(user);
             await _context.SaveChangesAsync();
 
-            return user.Id; // Retourner l'ID de l'utilisateur nouvellement créé
+            return user.Id;
         }
     }
+
 }

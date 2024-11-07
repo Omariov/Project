@@ -14,6 +14,10 @@ using EmployeeManagement.Application.Services;
 using EmployeeManagement.Infrastructure;
 using EmployeeManagement.Application.Features.Employees.DTOs;
 using EmployeeManagement.Application.Features.Employees.Commands;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Identity;
+using EmployeeManagement.Application.Features.Models.Commands;
+using EmployeeManagement.Core.Enums;
 
 namespace EmployeeManagement.Web.Controllers
 {
@@ -38,118 +42,151 @@ namespace EmployeeManagement.Web.Controllers
 
         #region Account
 
-        // Page d'accueil redirigeant vers la page de connexion
-        [HttpGet("")]
-        public IActionResult Index()
+
+        [HttpGet("", Name = "AcceuilRoute")]
+        public IActionResult Acceuil()
         {
-            return RedirectToAction("Login"); // Redirige vers la vue de connexion
+            return View("Acceuil");
         }
 
-        // GET: api/employees/login
-        [HttpGet("login")]
+
+        [HttpGet("Login")]
         public IActionResult Login()
         {
             var model = new LoginModel();
-            return View(model);
+            return View("Login");
         }
 
-        // POST: api/employees/login
-        [HttpPost("login")]
-        public async Task<IActionResult> Login(LoginModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                var user = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Username == model.Username);
-
-                if (user != null && _passwordHasher.VerifyPassword(user.PasswordHash, model.Password))
-                {
-                    var claims = new List<Claim>
-                    {
-                        new Claim(ClaimTypes.Name, user.Username),
-                        new Claim(ClaimTypes.Role, user.RoleId.ToString())
-                    };
-
-                    var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
-                    var authProperties = new AuthenticationProperties
-                    {
-                        IsPersistent = model.RememberMe
-                    };
-
-                    await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-
-                    // Redirection vers la page EmployeesList après la connexion
-                    return RedirectToAction("EmployeesList", "Employees");
-                }
-
-                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
-            }
-
-            return View(model);
-        }
-
-        // GET: api/employees/employeesList
-        [HttpGet("employeesList")]
-        public async Task<IActionResult> EmployeesList()
-        {
-            var query = new GetEmployeesQuery();
-            var result = await _mediator.Send(query);
-            return View("EmployeesList", result); // Envoie la liste des employés à la vue EmployeesList
-        }
-
-        // POST: api/employees/logout
-        [HttpPost("logout")]
-        public async Task<IActionResult> Logout()
-        {
-            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Index", "Home");
-        }
-
-        // GET: api/employees/register
-        [HttpGet("register")]
+        [HttpGet("Register")]
         public IActionResult Register()
         {
             ViewBag.Roles = _context.Roles.ToList();
             return View();
         }
 
-        // POST: api/employees/register
-        [HttpPost("register")]
-        public async Task<IActionResult> Register(RegisterModel model)
+
+
+
+        [HttpPost("Register")]
+        public async Task<IActionResult> Register([FromForm] RegisterCommand model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-                var existingUser = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Username == model.Username);
-
-                if (existingUser != null)
-                {
-                    ModelState.AddModelError(string.Empty, "Username already exists.");
-                    return View(model);
-                }
-
-                var passwordHash = _passwordHasher.HashPassword(model.Password);
-
-                var user = new User
-                {
-                    Username = model.Username,
-                    PasswordHash = passwordHash,
-                    RoleId = model.RoleId
-                };
-
-                _context.Users.Add(user);
-                await _context.SaveChangesAsync();
-
-                return RedirectToAction("Login");
+                ViewBag.Roles = await _context.Roles.ToListAsync();
+                return View(model);
             }
 
+            try
+            {
+                await _mediator.Send(model); // Envoie directement la commande
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError("Username", ex.Message);
+                ViewBag.Roles = await _context.Roles.ToListAsync();
+                return View(model);
+            }
+            return RedirectToAction("Acceuil");
+
+        }
+
+
+        [HttpPost("Login")]
+        public async Task<IActionResult> Login([FromForm] LoginCommand model)
+        {
+            if (!ModelState.IsValid)
+                return View(model);
+
+            bool isAuthenticated;
+            string userRole = "user"; // Par exemple, récupérer le rôle de l'utilisateur depuis la base de données
+            try
+            {
+                isAuthenticated = await _mediator.Send(model);
+            }
+            catch (Exception ex)
+            {
+                ModelState.AddModelError(string.Empty, ex.Message);
+                return View(model);
+            }
+
+            if (isAuthenticated)
+            {
+                // Récupérer le rôle de l'utilisateur à partir de la base de données ou de la logique
+                var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
+                if (user != null)
+                {
+                    userRole = user.RoleId.ToString();  // Assurez-vous que vous obtenez le rôle correct
+                }
+
+                // Créer les claims, y compris le rôle
+                var claims = new List<Claim>
+        {
+            new Claim(ClaimTypes.Name, model.Username),
+            new Claim(ClaimTypes.Role, userRole)  // Ajouter le rôle
+        };
+
+                var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var authProperties = new AuthenticationProperties
+                {
+                    IsPersistent = model.RememberMe
+                };
+
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
+
+                return RedirectToAction("EmployeesList", "Employees");
+            }
+
+            ModelState.AddModelError(string.Empty, "Nom d'utilisateur ou mot de passe incorrect.");
             return View(model);
         }
 
+
+        [Authorize]
+        [HttpGet("EmployeesList")]
+        public async Task<IActionResult> EmployeesList()
+        {
+            var userRole = User.FindFirst(ClaimTypes.Role)?.Value;
+
+            if (userRole == "1") // 1 correspond à SuperAdmin
+            {
+                var query = new GetEmployeesQuery();
+                var employees = await _mediator.Send(query);
+                return View(employees);
+            }
+            else
+            {
+                return View("AccessDenied"); // Assurez-vous que cette vue existe
+            }
+        }
+
+        [HttpPost("Logout")]
+        public async Task<IActionResult> Logout()
+        {
+            // Déconnecter l'utilisateur en supprimant les cookies d'authentification
+            await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
+
+            // Rediriger l'utilisateur vers la page d'accueil
+            return RedirectToAction("Acceuil", "Employees");
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        // POST: api/employees/register
+
+
         #endregion Account
-
-
-
 
         #region Crud Employees
 

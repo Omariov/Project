@@ -1,33 +1,12 @@
-﻿@model EmployeeManagement.Core.Models.RegisterModel
-
-<h2>Create Account</h2>
-
-<form asp-action="Register" method="post">
-    <div>
-        <label asp-for="Username"></label>
-        <input asp-for="Username" />
-        <span asp-validation-for="Username"></span>
-    </div>
-    <div>
-        <label asp-for="Password"></label>
-        <input asp-for="Password" type="password" />
-        <span asp-validation-for="Password"></span>
-    </div>
-    <div>
-        <label asp-for="ConfirmPassword"></label>
-        <input asp-for="ConfirmPassword" type="password" />
-        <span asp-validation-for="ConfirmPassword"></span>
-    </div>
-    <div>
-        <label asp-for="RoleId">Role</label>
-        <select asp-for="RoleId" asp-items="@(new SelectList(ViewBag.Roles, "Id", "Name"))"></select>
-        <span asp-validation-for="RoleId"></span>
-    </div>
-    <button type="submit">Register</button>
+﻿<form method="post" action="/api/Employees/register">
+    <input type="text" name="Username" placeholder="Nom d'utilisateur" required>
+    <input type="password" name="Password" placeholder="Mot de passe" required>
+    <input type="password" name="ConfirmPassword" placeholder="Confirmer mot de passe" required />
+    <select name="RoleId" required>
+        @foreach (var role in ViewBag.Roles)
+        {
+            <option value="@role.Id">@role.Name</option>
+        }
+    </select>
+    <button type="submit">S'inscrire</button>
 </form>
-
-@section Scripts {
-    @{
-        await Html.RenderPartialAsync("_ValidationScriptsPartial");
-    }
-}

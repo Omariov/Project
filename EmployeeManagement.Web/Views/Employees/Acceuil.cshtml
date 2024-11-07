@@ -1,0 +1,56 @@
+﻿@{
+    ViewData["Title"] = "Accueil";
+    Layout = null; // Si vous n'utilisez pas de layout
+}
+
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .content {
+            text-align: center;
+            margin: 20px 0;
+        }
+
+            .content img {
+                width: 100%;
+                height: auto;
+            }
+
+        .buttons {
+            margin: 20px 0;
+        }
+
+        footer {
+            background-color: #f8f9fa;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="content">
+        <div class="buttons">
+            <button onclick="window.location.href='/api/Employees/Login'" class="btn btn-primary">Login</button>
+            <button onclick="window.location.href='/api/Employees/Register'" class="btn btn-secondary">Register</button>
+        </div>
+    </div>
+    <footer>
+        <p>Contact: <a href="mailto:ibrahimiomar80@gmail.com">ibrahimiomar80@gmail.com</a></p>
+    </footer>
+</body>
+
+</html>

@@ -10,27 +10,26 @@ namespace EmployeeManagement.Application.Features.Models.Commands
     {
         public string Username { get; set; }
         public string Password { get; set; }
+        public bool RememberMe { get; set; }
     }
+
 
     public class LoginCommandHandler : IRequestHandler<LoginCommand, bool>
     {
         private readonly ApplicationDbContext _context;
-        private readonly IPasswordHashage _passwordHasher; // Déclaration de l'interface pour le hashage
+        private readonly IPasswordHashage _passwordHasher;
 
         public LoginCommandHandler(ApplicationDbContext context, IPasswordHashage passwordHasher)
         {
             _context = context;
-            _passwordHasher = passwordHasher; // Injection de dépendance
+            _passwordHasher = passwordHasher;
         }
 
         public async Task<bool> Handle(LoginCommand request, CancellationToken cancellationToken)
         {
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == request.Username);
-            if (user != null && _passwordHasher.VerifyPassword(user.PasswordHash, request.Password))
-            {
-                return true; // Connexion réussie
-            }
-            return false; // Échec de la connexion
+            return user != null && _passwordHasher.VerifyPassword(user.PasswordHash, request.Password);
         }
     }
+
 }
