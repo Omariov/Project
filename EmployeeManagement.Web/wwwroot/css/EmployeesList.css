@@ -1,0 +1,144 @@
+﻿/* Arrière-plan de la page */
+body {
+    background-color: #f0f2f5;
+    font-family: Arial, sans-serif;
+}
+
+/* Conteneur principal */
+.employee-list-container {
+    max-width: 1200px;
+    margin: 60px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+/* Titre de la page */
+.page-title {
+    font-size: 2.5rem;
+    color: #333333;
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: bold;
+    border-bottom: 2px solid #007bff;
+    padding-bottom: 10px;
+}
+
+/* Boutons d'authentification */
+.auth-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+    .auth-buttons .btn {
+        font-size: 1rem;
+        padding: 8px 15px;
+    }
+
+/* Boutons d'exportation et de création d'employés */
+.action-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+    .action-buttons .btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+        .action-buttons .btn:hover {
+            opacity: 0.9;
+        }
+
+/* Styles de la table */
+.table {
+    width: 100%;
+    margin-top: 20px;
+}
+
+.table-header {
+    background-color: #007bff;
+    color: #ffffff;
+    text-align: center;
+    font-weight: bold;
+}
+
+.table-hover tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.table td, .table th {
+    padding: 12px;
+    vertical-align: middle;
+    text-align: center;
+}
+
+.table .btn {
+    margin: 0 5px;
+    padding: 6px 12px;
+    font-size: 0.9rem;
+    border-radius: 5px;
+}
+
+/* Boutons d'action dans le tableau */
+.btn-outline-warning, .btn-outline-info {
+    color: #ffffff;
+    border: none;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn-outline-warning {
+    background-color: #f0ad4e;
+}
+
+    .btn-outline-warning:hover {
+        background-color: #ec971f;
+        transform: scale(1.05);
+    }
+
+.btn-outline-info {
+    background-color: #5bc0de;
+}
+
+    .btn-outline-info:hover {
+        background-color: #31b0d5;
+        transform: scale(1.05);
+    }
+
+/* Messages d'accès refusé */
+.access-denied {
+    text-align: center;
+    margin-top: 100px;
+    color: #dc3545;
+}
+
+    .access-denied h1 {
+        font-size: 2.5rem;
+    }
+
+    .access-denied p {
+        font-size: 1.2rem;
+        color: #6c757d;
+    }
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .employee-list-container {
+        padding: 15px;
+    }
+
+    .action-buttons {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .table .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

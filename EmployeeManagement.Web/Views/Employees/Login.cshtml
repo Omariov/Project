@@ -1,28 +1,105 @@
 ﻿@using EmployeeManagement.Application.Features.Models.Commands
 @model LoginCommand
 
-<h2>Connexion</h2>
-
-<!-- Affichage des erreurs globales -->
-@if (!ViewData.ModelState.IsValid)
-{
-    <div class="alert alert-danger">
-        <ul>
-            @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
-            {
-                <li>@error.ErrorMessage</li>
-            }
-        </ul>
-    </div>
+@{
+    ViewData["Title"] = "Connexion";
+    Layout = null;  // Assurez-vous que vous avez un layout général
 }
-<form method="post" action="/api/Employees/login">
-    <input type="text" name="Username" placeholder="Nom d'utilisateur" required />
-    <input type="password" name="Password" placeholder="Mot de passe" required />
 
-    <div>
-        <input type="checkbox" name="RememberMe" id="RememberMe" value="true" />
-        <label for="RememberMe">Se souvenir de moi</label>
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewData["Title"]</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="~/css/Login.css"> <!-- Ajout du fichier CSS spécifique pour la page de login -->
+</head>
+<body class="bg-light">
+
+    <div class="container">
+        <!-- Header -->
+        <header class="header text-white py-3 mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo à gauche -->
+                <div class="logo">
+                    <img src="~/images/HCP1.jpeg" alt="Logo" class="logo-img">
+                </div>
+
+                <!-- Menu de navigation à droite -->
+                <nav>
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item mx-3">
+                            <a href="/api/Employees" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a href="/api/Employees/Login" class="nav-link">Se connecter</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a href="/api/Employees/Register" class="nav-link">S'inscrire</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+
+        <!-- Formulaire de connexion -->
+        <div class="row justify-content-center">
+            <div class="col-md-6 col-lg-4">
+                <div class="card shadow-sm">
+                    <div class="card-body">
+                        <h2 class="text-center mb-4">Se connecter</h2>
+
+                        <!-- Affichage des erreurs globales -->
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger">
+                                <ul>
+                                    @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+                                    {
+                                        <li>@error.ErrorMessage</li>
+                                    }
+                                </ul>
+                            </div>
+                        }
+
+                        <!-- Formulaire de connexion -->
+                        <form method="post" action="/api/Employees/login">
+                            <div class="form-group">
+                                <label for="Username">Nom d'utilisateur</label>
+                                <input type="text" name="Username" id="Username" class="form-control" placeholder="Nom d'utilisateur" required />
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Password">Mot de passe</label>
+                                <input type="password" name="Password" id="Password" class="form-control" placeholder="Mot de passe" required />
+                            </div>
+
+                            <div class="form-check">
+                                <input type="checkbox" name="RememberMe" id="RememberMe" class="form-check-input" value="true" />
+                                <label class="form-check-label" for="RememberMe">Se souvenir de moi</label>
+                            </div>
+
+                            <div class="form-group text-center mt-4">
+                                <button type="submit" class="btn btn-primary btn-lg w-100">Se connecter</button>
+                            </div>
+                        </form>
+
+                        <div class="mt-3 text-center">
+                            <a href="/api/Employees/Register" class="text-primary">Pas encore inscrit ? Créez un compte</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-3 mt-5">
+            <p>Contactez-nous : <a href="mailto:ibrahimiomar80@gmail.com">ibrahimiomar80@gmail.com</a></p>
+            <p>&copy; 2024 HCP</p>
+        </footer>
     </div>
 
-    <button type="submit">Se connecter</button>
-</form>
+</body>
+</html>

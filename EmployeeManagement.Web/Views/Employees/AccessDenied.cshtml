@@ -1,13 +1,19 @@
 ﻿@page
 @using System.Security.Claims
-
-<h1>Accès Refusé</h1>
-<p>
-    Vous n'avez pas les droits pour consulter cette page.
-    Votre rôle actuel est : <strong>@User.FindFirst(ClaimTypes.Role)?.Value</strong>.
-</p>
-<p>
-    Veuillez contacter un administrateur si vous pensez que c'est une erreur.
-</p>
-<a href="/account/login" class="btn btn-secondary">Se connecter</a>
-<a href="/" class="btn btn-primary">Retour à l'accueil</a>
+<head>
+    <link rel="stylesheet" href="~/css/AccessDenied.css">
+</head>
+<div class="access-denied-container text-center">
+    <h1 class="text-danger">Accès Refusé</h1>
+    <p class="lead">
+        Vous n'avez pas les droits pour consulter cette page.<br>
+        Votre rôle actuel est : <strong>@User.FindFirst(ClaimTypes.Role)?.Value</strong>.
+    </p>
+    <p>
+        Veuillez contacter un administrateur si vous pensez que c'est une erreur.
+    </p>
+    <div class="btn-group">
+        <a href="/api/Employees/Login" class="btn btn-secondary btn-lg">Se connecter</a>
+        <a href="/api/Employees" class="btn btn-primary btn-lg">Retour à l'accueil</a>
+    </div>
+</div>

@@ -1,6 +1,6 @@
 ﻿@{
     ViewData["Title"] = "Accueil";
-    Layout = null; // Si vous n'utilisez pas de layout
+    Layout = null;
 }
 
 <!DOCTYPE html>
@@ -10,47 +10,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-        }
-
-        .content {
-            text-align: center;
-            margin: 20px 0;
-        }
-
-            .content img {
-                width: 100%;
-                height: auto;
-            }
-
-        .buttons {
-            margin: 20px 0;
-        }
-
-        footer {
-            background-color: #f8f9fa;
-            text-align: center;
-            padding: 10px;
-            position: relative;
-            bottom: 0;
-            width: 100%;
-        }
-    </style>
+    <link rel="stylesheet" href="~/css/Acceuil.css"> <!-- Fichier CSS pour les styles personnalisés -->
 </head>
 <body>
-    <div class="content">
-        <div class="buttons">
-            <button onclick="window.location.href='/api/Employees/Login'" class="btn btn-primary">Login</button>
-            <button onclick="window.location.href='/api/Employees/Register'" class="btn btn-secondary">Register</button>
-        </div>
-    </div>
-    <footer>
-        <p>Contact: <a href="mailto:ibrahimiomar80@gmail.com">ibrahimiomar80@gmail.com</a></p>
-    </footer>
-</body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header text-white py-3 mb-4">
+            <div class="container d-flex justify-content-between align-items-center">
+                <!-- Logo à gauche -->
+                <div class="logo">
+                    <img src="~/images/HCP1.jpeg" alt="Logo" class="logo-img">
+                </div>
 
+                <!-- Menu de navigation à droite -->
+                <nav>
+                    <ul class="navbar-nav d-flex flex-row">
+                        <li class="nav-item mx-3">
+                            <a href="/api/Employees" class="nav-link">Accueil</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a href="/api/Employees/Login" class="nav-link">Se connecter</a>
+                        </li>
+                        <li class="nav-item mx-3">
+                            <a href="/api/Employees/Register" class="nav-link">S'inscrire</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Content Area -->
+        <div class="content text-center">
+            <h2>Bienvenue sur notre site de gestion de stock</h2>
+            <p class="lead">Accédez facilement à votre compte ou inscrivez-vous pour commencer</p>
+            <div class="buttons mb-5">
+                <button onclick="window.location.href='/api/Employees/Login'" class="btn btn-lg btn-primary">Se connecter</button>
+                <button onclick="window.location.href='/api/Employees/Register'" class="btn btn-lg btn-outline-primary ml-3">S'inscrire</button>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="text-center py-3">
+            <p>Contactez-nous : <a href="mailto:ibrahimiomar80@gmail.com">ibrahimiomar80@gmail.com</a></p>
+            <p>&copy; 2024 HCP</p>
+        </footer>
+    </div>
+</body>
 </html>

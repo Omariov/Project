@@ -1,0 +1,102 @@
+﻿body {
+    background-color: #f4f6f9;
+}
+
+.header {
+    margin-top: 30px; /* Ajustez la valeur selon vos préférences */
+    background-color: #007bff; /* Ajout d'une couleur de fond bleue */
+    border-radius: 30px; /* Ajout d'arrondis pour plus d'esthétique */
+    padding: 20px;
+}
+
+
+.logo-img {
+    height: 50px; /* Ajustement de la hauteur pour un logo plus compact */
+    width: auto;
+}
+
+.nav-link {
+    color: #ffffff;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+    .nav-link:hover {
+        color: #adb5bd; /* Gris clair pour l'effet de survol */
+    }
+
+
+.card {
+    border: none;
+    background-color: #ffffff; /* Couleur de fond blanc */
+    border-radius: 8px;
+}
+
+.card-body h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: #343a40; /* Gris foncé pour les titres */
+}
+
+.alert-danger {
+    background-color: #f8d7da;
+    color: #721c24;
+    border: 1px solid #f5c6cb;
+    border-radius: 5px;
+}
+
+.form-group label {
+    font-weight: bold;
+    color: #343a40; /* Gris foncé pour les étiquettes */
+}
+
+.form-control {
+    border-radius: 5px;
+    border: 1px solid #ced4da; /* Bordure gris clair */
+    padding: 10px;
+}
+
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+    }
+
+.form-check-label {
+    color: #343a40; /* Couleur pour "Se souvenir de moi" */
+}
+
+.btn-primary {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: bold;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    transition: background-color 0.3s;
+}
+
+    .btn-primary:hover {
+        background-color: #0056b3;
+    }
+
+.text-primary {
+    color: #007bff;
+}
+
+    .text-primary:hover {
+        color: #0056b3;
+        text-decoration: underline;
+    }
+
+footer {
+    font-size: 14px;
+    color: #6c757d;
+}
+
+    footer a {
+        color: #007bff;
+    }
+
+        footer a:hover {
+            color: #0056b3;
+        }
