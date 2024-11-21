@@ -1,10 +1,10 @@
-﻿using EmployeeManagement.Core.Entities;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Core.Entities;
+using StockManagement.Infrastructure;
 using MediatR;
 
-namespace EmployeeManagement.Application.Features.Employees.Commands
+namespace StockManagement.Application.Features.Employees.Commands
 {
-    public class CreateEmployeeCommand : IRequest<int>
+    public class CreateEmployeeCommand : IRequest<Guid>
     {
         public string FirstName { get; set; }
         public string LastName { get; set; }
@@ -12,7 +12,7 @@ namespace EmployeeManagement.Application.Features.Employees.Commands
         public decimal Salary { get; set; }
     }
 
-    public class CreateEmployeeHandler : IRequestHandler<CreateEmployeeCommand, int>
+    public class CreateEmployeeHandler : IRequestHandler<CreateEmployeeCommand, Guid>
     {
         private readonly ApplicationDbContext _context;
 
@@ -21,7 +21,7 @@ namespace EmployeeManagement.Application.Features.Employees.Commands
             _context = context;
         }
 
-        public async Task<int> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateEmployeeCommand request, CancellationToken cancellationToken)
         {
             var employee = new Employee
             {

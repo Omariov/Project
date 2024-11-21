@@ -1,13 +1,13 @@
-﻿using EmployeeManagement.Core.Entities;
-using EmployeeManagement.Application.Services;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Core.Entities;
+using StockManagement.Application.Services;
+using StockManagement.Infrastructure;
 using MediatR;
 
-namespace EmployeeManagement.Application.Features.Users.Commands
+namespace StockManagement.Application.Features.Users.Commands
 {
     public class UpdateUserCommand : IRequest<bool>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
         public int RoleId { get; set; } // Référence au rôle

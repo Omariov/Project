@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Core.Enums
+namespace StockManagement.Core.Enums
 {
     public enum UserRole
     {

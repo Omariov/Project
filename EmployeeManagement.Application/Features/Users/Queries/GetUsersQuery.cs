@@ -1,9 +1,9 @@
-﻿using EmployeeManagement.Application.Features.Users.DTOs;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Application.Features.Users.DTOs;
+using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Application.Features.Users.Queries
+namespace StockManagement.Application.Features.Users.Queries
 {
     public class GetUsersQuery : IRequest<List<UserDto>>
     {

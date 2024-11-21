@@ -1,7 +1,7 @@
-﻿using EmployeeManagement.Application.Features.Employees.DTOs;
+﻿using StockManagement.Application.Features.Employees.DTOs;
 using OfficeOpenXml;
 
-namespace EmployeeManagement.Web.Services
+namespace StockManagement.Web.Services
 {
     public class ExcelService
     {
@@ -45,7 +45,7 @@ namespace EmployeeManagement.Web.Services
             {
                 var employee = new EmployeeDto
                 {
-                    Id = 0, // ID auto-incrémenté, pas besoin de le définir ici
+                    Id = new Guid(), // ID auto-incrémenté, pas besoin de le définir ici
                     FirstName = worksheet.Cells[row, 2].Value?.ToString(),
                     LastName = worksheet.Cells[row, 3].Value?.ToString(),
                     Position = worksheet.Cells[row, 4].Value?.ToString(),

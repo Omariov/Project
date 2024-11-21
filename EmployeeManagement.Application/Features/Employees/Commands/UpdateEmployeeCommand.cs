@@ -1,12 +1,12 @@
-﻿using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Application.Features.Employees.Commands
+namespace StockManagement.Application.Features.Employees.Commands
 {
     public class UpdateEmployeeCommand : IRequest<bool>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Position { get; set; }

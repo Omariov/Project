@@ -1,10 +1,10 @@
 ﻿using DinkToPdf;
 using DinkToPdf.Contracts;
-using EmployeeManagement.Application.Features.Employees.DTOs;
+using StockManagement.Application.Features.Employees.DTOs;
 using System.Collections.Generic;
 using System.IO;
 
-namespace EmployeeManagement.Web.Services
+namespace StockManagement.Web.Services
 {
     public class PdfService
     {

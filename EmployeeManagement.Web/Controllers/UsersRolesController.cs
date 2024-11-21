@@ -1,8 +1,8 @@
-﻿using EmployeeManagement.Application.Features.Roles.DTOs;
-using EmployeeManagement.Application.Features.Roles.Queries;
-using EmployeeManagement.Application.Features.Users.Commands; 
-using EmployeeManagement.Application.Features.Users.DTOs;
-using EmployeeManagement.Application.Features.Users.Queries;
+﻿using StockManagement.Application.Features.Roles.DTOs;
+using StockManagement.Application.Features.Roles.Queries;
+using StockManagement.Application.Features.Users.Commands; 
+using StockManagement.Application.Features.Users.DTOs;
+using StockManagement.Application.Features.Users.Queries;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
@@ -28,7 +28,7 @@ public class UsersRolesController : ControllerBase
 
     // GET: api/usersroles/{id}
     [HttpGet("{id}")]
-    public async Task<ActionResult<UserDto>> GetUserById(int id)
+    public async Task<ActionResult<UserDto>> GetUserById(Guid id)
     {
         var query = new GetUserByIdQuery { Id = id };
         var result = await _mediator.Send(query);
@@ -51,7 +51,7 @@ public class UsersRolesController : ControllerBase
 
     // PUT: api/usersroles/{id}
     [HttpPut("{id}")]
-    public async Task<ActionResult> UpdateUser(int id, UpdateUserCommand command)
+    public async Task<ActionResult> UpdateUser(Guid id, UpdateUserCommand command)
     {
         if (id != command.Id)
         {
@@ -69,7 +69,7 @@ public class UsersRolesController : ControllerBase
 
     // DELETE: api/usersroles/{id}
     [HttpDelete("{id}")]
-    public async Task<ActionResult> DeleteUser(int id)
+    public async Task<ActionResult> DeleteUser(Guid id)
     {
         var command = new DeleteUserCommand { Id = id };
         var result = await _mediator.Send(command);

@@ -1,12 +1,12 @@
-﻿using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Application.Features.Employees.Commands
+namespace StockManagement.Application.Features.Employees.Commands
 {
     public class DeleteEmployeeCommand : IRequest<bool>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 
     public class DeleteEmployeeHandler : IRequestHandler<DeleteEmployeeCommand, bool>

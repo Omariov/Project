@@ -1,9 +1,9 @@
 using DinkToPdf;
 using DinkToPdf.Contracts;
-using EmployeeManagement.Application.Features.Employees.Commands;
-using EmployeeManagement.Application.Services;
-using EmployeeManagement.Infrastructure;
-using EmployeeManagement.Web.Services;
+using StockManagement.Application.Features.Employees.Commands;
+using StockManagement.Application.Services;
+using StockManagement.Infrastructure;
+using StockManagement.Web.Services;
 using MediatR;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.EntityFrameworkCore;

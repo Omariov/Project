@@ -2,24 +2,24 @@
 using MediatR;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using EmployeeManagement.Application.Features.Employees.Queries;
-using EmployeeManagement.Core.Models;
-using EmployeeManagement.Core.Entities;
+using StockManagement.Application.Features.Employees.Queries;
+using StockManagement.Core.Models;
+using StockManagement.Core.Entities;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
 using Microsoft.EntityFrameworkCore;
-using EmployeeManagement.Web.Services;
-using EmployeeManagement.Application.Services;
-using EmployeeManagement.Infrastructure;
-using EmployeeManagement.Application.Features.Employees.DTOs;
-using EmployeeManagement.Application.Features.Employees.Commands;
+using StockManagement.Web.Services;
+using StockManagement.Application.Services;
+using StockManagement.Infrastructure;
+using StockManagement.Application.Features.Employees.DTOs;
+using StockManagement.Application.Features.Employees.Commands;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
-using EmployeeManagement.Application.Features.Models.Commands;
-using EmployeeManagement.Core.Enums;
+using StockManagement.Application.Features.Models.Commands;
+using StockManagement.Core.Enums;
 
-namespace EmployeeManagement.Web.Controllers
+namespace StockManagement.Web.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -70,6 +70,7 @@ namespace EmployeeManagement.Web.Controllers
         [HttpPost("Register")]
         public async Task<IActionResult> Register([FromForm] RegisterCommand model)
         {
+
             if (!ModelState.IsValid)
             {
                 ViewBag.Roles = await _context.Roles.ToListAsync();
@@ -111,19 +112,18 @@ namespace EmployeeManagement.Web.Controllers
 
             if (isAuthenticated)
             {
-                // Récupérer le rôle de l'utilisateur à partir de la base de données ou de la logique
                 var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == model.Username);
                 if (user != null)
                 {
-                    userRole = user.RoleId.ToString();  // Assurez-vous que vous obtenez le rôle correct
+                    userRole = user.RoleId.ToString();
                 }
 
-                // Créer les claims, y compris le rôle
                 var claims = new List<Claim>
-        {
-            new Claim(ClaimTypes.Name, model.Username),
-            new Claim(ClaimTypes.Role, userRole)  // Ajouter le rôle
-        };
+    {
+        new Claim(ClaimTypes.Name, model.Username),
+        new Claim(ClaimTypes.Role, userRole),
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) // ID utilisateur comme NameIdentifier
+    };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
                 var authProperties = new AuthenticationProperties
@@ -133,8 +133,9 @@ namespace EmployeeManagement.Web.Controllers
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
 
-                return RedirectToAction("EmployeesList", "Employees");
+                return RedirectToAction("GetListDemandesByUserId", "Demandes");
             }
+
 
             ModelState.AddModelError(string.Empty, "Nom d'utilisateur ou mot de passe incorrect.");
             return View(model);
@@ -201,7 +202,7 @@ namespace EmployeeManagement.Web.Controllers
 
         // GET: api/employees/get-by-id/{id}
         [HttpGet("get-by-id/{id}")]
-        public async Task<ActionResult<EmployeeDto>> GetEmployeeById(int id)
+        public async Task<ActionResult<EmployeeDto>> GetEmployeeById(Guid id)
         {
             var query = new GetEmployeeByIdQuery { Id = id };
             var result = await _mediator.Send(query);
@@ -224,7 +225,7 @@ namespace EmployeeManagement.Web.Controllers
 
         // PUT: api/employees/update/{id}
         [HttpPut("update/{id}")]
-        public async Task<ActionResult> UpdateEmployee(int id, UpdateEmployeeCommand command)
+        public async Task<ActionResult> UpdateEmployee(Guid id, UpdateEmployeeCommand command)
         {
             if (id != command.Id)
             {
@@ -242,7 +243,7 @@ namespace EmployeeManagement.Web.Controllers
 
         // DELETE: api/employees/delete/{id}
         [HttpDelete("delete/{id}")]
-        public async Task<ActionResult> DeleteEmployee(int id)
+        public async Task<ActionResult> DeleteEmployee(Guid id)
         {
             var command = new DeleteEmployeeCommand { Id = id };
             var result = await _mediator.Send(command);

@@ -1,13 +1,13 @@
-﻿using EmployeeManagement.Application.Features.Users.DTOs;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Application.Features.Users.DTOs;
+using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Application.Features.Users.Queries
+namespace StockManagement.Application.Features.Users.Queries
 {
     public class GetUserByIdQuery : IRequest<UserDto>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 
     public class GetUserByIdHandler : IRequestHandler<GetUserByIdQuery, UserDto>

@@ -1,13 +1,13 @@
-﻿using EmployeeManagement.Core.Entities;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Core.Entities;
+using StockManagement.Infrastructure;
 using MediatR;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using EmployeeManagement.Application.Features.Roles.DTOs;
+using StockManagement.Application.Features.Roles.DTOs;
 
-namespace EmployeeManagement.Application.Features.Roles.Queries
+namespace StockManagement.Application.Features.Roles.Queries
 {
     public class GetRolesQuery : IRequest<List<RoleDto>>
     {

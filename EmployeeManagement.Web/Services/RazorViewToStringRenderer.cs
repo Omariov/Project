@@ -8,7 +8,7 @@ using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
-namespace EmployeeManagement.Web.Services
+namespace StockManagement.Web.Services
 {
     public class RazorViewToStringRenderer
     {

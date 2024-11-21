@@ -33,10 +33,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EmployeeManagement.Application\EmployeeManagement.Application.csproj" />
-    <ProjectReference Include="..\EmployeeManagement.Core\EmployeeManagement.Core.csproj" />
-    <ProjectReference Include="..\EmployeeManagement.Infrastructure\EmployeeManagement.Infrastructure.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Application\StockManagement.Application.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Core\StockManagement.Core.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Infrastructure\StockManagement.Infrastructure.csproj" />
   </ItemGroup>
+
+  
 
   <ItemGroup>
     <None Update="wkhtmltox.dll">

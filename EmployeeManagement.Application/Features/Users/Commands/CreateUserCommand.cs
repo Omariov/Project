@@ -1,18 +1,18 @@
-﻿using EmployeeManagement.Core.Entities;
-using EmployeeManagement.Application.Services;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Core.Entities;
+using StockManagement.Application.Services;
+using StockManagement.Infrastructure;
 using MediatR;
 
-namespace EmployeeManagement.Application.Features.Users.Commands
+namespace StockManagement.Application.Features.Users.Commands
 {
-    public class CreateUserCommand : IRequest<int>
+    public class CreateUserCommand : IRequest<Guid>
     {
         public string Username { get; set; }
         public string Password { get; set; }
         public int RoleId { get; set; } // Référence au rôle
     }
 
-    public class CreateUserHandler : IRequestHandler<CreateUserCommand, int>
+    public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
     {
         private readonly ApplicationDbContext _context;
         private readonly IPasswordHashage _IpasswordHasher;
@@ -22,7 +22,7 @@ namespace EmployeeManagement.Application.Features.Users.Commands
             _IpasswordHasher =IpasswordHasher;
         }
 
-        public async Task<int> Handle(CreateUserCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateUserCommand request, CancellationToken cancellationToken)
         {
             var user = new User
             {

@@ -1,7 +1,8 @@
-﻿namespace EmployeeManagement.Core.Entities {
-    public class Employee
+﻿using StockManagement.Core.Entities;
+
+namespace StockManagement.Core.Entities {
+    public class Employee : BaseEntity<Guid>
     {
-        public int Id { get; set; }  
         public string FirstName { get; set; }
         public string LastName { get; set; }
         public string Position { get; set; }

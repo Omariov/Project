@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
-namespace EmployeeManagement.Core.Entities
+namespace StockManagement.Core.Entities
 {
-    public class Role
+    public class Role : BaseEntity<int>
     {
-        public int Id { get; set; }             // Clé primaire
-        public string Name { get; set; }         // Nom du rôle (ex. "SuperAdmin", "Manager", "Requester")
+        public string Name { get; set; }
 
-        // Navigation property
         public ICollection<User> Users { get; set; } = new List<User>();
     }
 }

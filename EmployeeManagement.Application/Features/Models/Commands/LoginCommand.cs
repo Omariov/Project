@@ -1,10 +1,10 @@
-﻿using EmployeeManagement.Core.Entities;
-using EmployeeManagement.Application.Services; // Ajoutez cette ligne pour importer votre service
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Core.Entities;
+using StockManagement.Application.Services; // Ajoutez cette ligne pour importer votre service
+using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 
-namespace EmployeeManagement.Application.Features.Models.Commands
+namespace StockManagement.Application.Features.Models.Commands
 {
     public class LoginCommand : IRequest<bool>
     {

@@ -1,7 +1,7 @@
-﻿using EmployeeManagement.Application.Services;
+﻿using StockManagement.Application.Services;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using System.Security.Cryptography;
-namespace EmployeeManagement.Application.Services
+namespace StockManagement.Application.Services
 { 
 public class PasswordHashage : IPasswordHashage
 {

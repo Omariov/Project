@@ -1,4 +1,4 @@
-﻿namespace EmployeeManagement.Core.Models
+﻿namespace StockManagement.Core.Models
 {
     public class RegisterModel
     {

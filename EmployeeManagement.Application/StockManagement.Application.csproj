@@ -12,15 +12,20 @@
     <PackageReference Include="MediatR" Version="12.4.1" />
     <PackageReference Include="MediatR.Extensions.Microsoft.DependencyInjection" Version="11.1.0" />
     <PackageReference Include="Microsoft.AspNetCore.Cryptography.KeyDerivation" Version="8.0.10" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Abstractions" Version="2.2.0" />
   </ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\EmployeeManagement.Core\EmployeeManagement.Core.csproj" />
-    <ProjectReference Include="..\EmployeeManagement.Infrastructure\EmployeeManagement.Infrastructure.csproj" />
-  </ItemGroup>
+  
 
   <ItemGroup>
     <Folder Include="Features\Employees\Handlers\" />
+  </ItemGroup>
+
+  
+
+  <ItemGroup>
+    <ProjectReference Include="..\EmployeeManagement.Core\StockManagement.Core.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Infrastructure\StockManagement.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

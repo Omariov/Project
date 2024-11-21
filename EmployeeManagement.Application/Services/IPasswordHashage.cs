@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace EmployeeManagement.Application.Services
+namespace StockManagement.Application.Services
 {
     public interface IPasswordHashage
     {

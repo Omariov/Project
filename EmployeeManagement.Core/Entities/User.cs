@@ -1,19 +1,17 @@
-﻿using System;
+﻿using StockManagement.Core.Entities;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace EmployeeManagement.Core.Entities
+namespace StockManagement.Core.Entities
 {
-    public class User
+    public class User : BaseEntity<Guid>
     {
-        public int Id { get; set; }                    // Clé primaire
-        public string Username { get; set; }           // Nom d'utilisateur pour la connexion
-        public string PasswordHash { get; set; }       // Mot de passe haché
+        public string Username { get; set; }
+        public string PasswordHash { get; set; }
 
-        // Relation avec Role (clé étrangère)
         public int RoleId { get; set; }
-        public Role Role { get; set; }                 // Navigation vers le rôle
+        public Role Role { get; set; }
+
+        public UserDetail? UserDetails { get; set; }
+        public ICollection<Demande>? Demandes { get; set; } = new List<Demande>();
     }
 }

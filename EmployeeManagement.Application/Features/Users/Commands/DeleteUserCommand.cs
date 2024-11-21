@@ -1,11 +1,11 @@
-﻿using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Infrastructure;
 using MediatR;
 
-namespace EmployeeManagement.Application.Features.Users.Commands
+namespace StockManagement.Application.Features.Users.Commands
 {
     public class DeleteUserCommand : IRequest<bool>
     {
-        public int Id { get; set; }
+        public Guid Id { get; set; }
     }
 
     public class DeleteUserHandler : IRequestHandler<DeleteUserCommand, bool>

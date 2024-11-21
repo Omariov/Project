@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Design;
 using Microsoft.Extensions.Configuration; 
 using System.IO;
 
-namespace EmployeeManagement.Infrastructure
+namespace StockManagement.Infrastructure
 {
     public class DesignTimeDbContextFactory : IDesignTimeDbContextFactory<ApplicationDbContext>
     {

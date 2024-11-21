@@ -1,7 +1,7 @@
-﻿using EmployeeManagement.Application.Features.Users.DTOs;
+﻿using StockManagement.Application.Features.Users.DTOs;
 using System.Collections.Generic;
 
-namespace EmployeeManagement.Application.Features.Roles.DTOs
+namespace StockManagement.Application.Features.Roles.DTOs
 {
     public class RoleDto
     {

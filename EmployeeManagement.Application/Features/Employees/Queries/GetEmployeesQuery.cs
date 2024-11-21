@@ -1,10 +1,10 @@
-﻿using EmployeeManagement.Application.Features.Employees.DTOs;
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Application.Features.Employees.DTOs;
+using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 
-namespace EmployeeManagement.Application.Features.Employees.Queries
+namespace StockManagement.Application.Features.Employees.Queries
 {
     public class GetEmployeesQuery : IRequest<List<EmployeeDto>>
     {

@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace EmployeeManagement.Core.Models
+namespace StockManagement.Core.Models
 {
     public class LoginModel
     {

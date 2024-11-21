@@ -23,7 +23,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EmployeeManagement.Core\EmployeeManagement.Core.csproj" />
+    <ProjectReference Include="..\EmployeeManagement.Core\StockManagement.Core.csproj" />
   </ItemGroup>
+
+ 
 
 </Project>

@@ -1,12 +1,14 @@
-﻿using EmployeeManagement.Core.Entities;
-using EmployeeManagement.Application.Services; // Ajoutez cette ligne pour importer votre service
-using EmployeeManagement.Infrastructure;
+﻿using StockManagement.Core.Entities;
+using StockManagement.Application.Services; // Ajoutez cette ligne pour importer votre service
+using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Http;
 
-namespace EmployeeManagement.Application.Features.Models.Commands
+namespace StockManagement.Application.Features.Models.Commands
 {
-    public class RegisterCommand : IRequest<int>
+    public class RegisterCommand : IRequest<Guid>
     {
         public string Username { get; set; }
         public string Password { get; set; }
@@ -15,18 +17,22 @@ namespace EmployeeManagement.Application.Features.Models.Commands
         public int RoleId { get; set; } // Si vous gérez les rôles
     }
 
-    public class RegisterCommandHandler : IRequestHandler<RegisterCommand, int>
+    public class RegisterCommandHandler : IRequestHandler<RegisterCommand, Guid>
     {
         private readonly ApplicationDbContext _context;
         private readonly IPasswordHashage _passwordHasher;
+        private readonly IHttpContextAccessor _httpContextAccessor; // Ajout pour accéder au contexte HTTP
 
-        public RegisterCommandHandler(ApplicationDbContext context, IPasswordHashage passwordHasher)
+
+        public RegisterCommandHandler(ApplicationDbContext context, IPasswordHashage passwordHasher, IHttpContextAccessor httpContextAccessor)
         {
             _context = context;
             _passwordHasher = passwordHasher;
+            _httpContextAccessor = httpContextAccessor;
+
         }
 
-        public async Task<int> Handle(RegisterCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(RegisterCommand request, CancellationToken cancellationToken)
         {
             // Vérifier si l'utilisateur existe déjà
             var existingUser = await _context.Users
@@ -51,12 +57,17 @@ namespace EmployeeManagement.Application.Features.Models.Commands
             // Hachage du mot de passe
             var passwordHash = _passwordHasher.HashPassword(request.Password);
 
+            var createdBy = _httpContextAccessor.HttpContext.User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+
+
             // Création de l'utilisateur
             var user = new User
             {
+                Id = new Guid(),
                 Username = request.Username,
                 PasswordHash = passwordHash,
-                RoleId = request.RoleId
+                RoleId = request.RoleId,
+                CreatedBy = createdBy
             };
 
             _context.Users.Add(user);
