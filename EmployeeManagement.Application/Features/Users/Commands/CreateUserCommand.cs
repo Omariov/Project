@@ -9,7 +9,7 @@ namespace StockManagement.Application.Features.Users.Commands
     {
         public string Username { get; set; }
         public string Password { get; set; }
-        public int RoleId { get; set; } // Référence au rôle
+        public int RoleId { get; set; } 
     }
 
     public class CreateUserHandler : IRequestHandler<CreateUserCommand, Guid>
@@ -27,7 +27,7 @@ namespace StockManagement.Application.Features.Users.Commands
             var user = new User
             {
                 Username = request.Username,
-                PasswordHash = _IpasswordHasher.HashPassword(request.Password), // Assure-toi d'avoir une méthode pour hacher le mot de passe
+                PasswordHash = _IpasswordHasher.HashPassword(request.Password), 
                 RoleId = request.RoleId
             };
 

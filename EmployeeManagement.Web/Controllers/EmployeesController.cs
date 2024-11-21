@@ -79,7 +79,7 @@ namespace StockManagement.Web.Controllers
 
             try
             {
-                await _mediator.Send(model); // Envoie directement la commande
+                await _mediator.Send(model); 
             }
             catch (Exception ex)
             {
@@ -99,7 +99,7 @@ namespace StockManagement.Web.Controllers
                 return View(model);
 
             bool isAuthenticated;
-            string userRole = "user"; // Par exemple, récupérer le rôle de l'utilisateur depuis la base de données
+            string userRole = "user"; 
             try
             {
                 isAuthenticated = await _mediator.Send(model);
@@ -122,7 +122,7 @@ namespace StockManagement.Web.Controllers
     {
         new Claim(ClaimTypes.Name, model.Username),
         new Claim(ClaimTypes.Role, userRole),
-        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) // ID utilisateur comme NameIdentifier
+        new Claim(ClaimTypes.NameIdentifier, user.Id.ToString()) 
     };
 
                 var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
@@ -156,17 +156,15 @@ namespace StockManagement.Web.Controllers
             }
             else
             {
-                return View("AccessDenied"); // Assurez-vous que cette vue existe
+                return View("AccessDenied"); 
             }
         }
 
         [HttpPost("Logout")]
         public async Task<IActionResult> Logout()
         {
-            // Déconnecter l'utilisateur en supprimant les cookies d'authentification
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
 
-            // Rediriger l'utilisateur vers la page d'accueil
             return RedirectToAction("Acceuil", "Employees");
         }
 
@@ -184,14 +182,12 @@ namespace StockManagement.Web.Controllers
 
 
 
-        // POST: api/employees/register
 
 
         #endregion Account
 
         #region Crud Employees
 
-        // GET: api/employees/get-all
         [HttpGet("get-all")]
         public async Task<ActionResult<List<EmployeeDto>>> GetEmployees()
         {
@@ -200,7 +196,6 @@ namespace StockManagement.Web.Controllers
             return Ok(result);
         }
 
-        // GET: api/employees/get-by-id/{id}
         [HttpGet("get-by-id/{id}")]
         public async Task<ActionResult<EmployeeDto>> GetEmployeeById(Guid id)
         {
@@ -209,13 +204,12 @@ namespace StockManagement.Web.Controllers
 
             if (result == null)
             {
-                return NotFound(); // Employé non trouvé
+                return NotFound(); 
             }
 
             return Ok(result);
         }
 
-        // POST: api/employees/create
         [HttpPost("create")]
         public async Task<ActionResult<int>> CreateEmployee(CreateEmployeeCommand command)
         {
@@ -223,25 +217,23 @@ namespace StockManagement.Web.Controllers
             return CreatedAtAction(nameof(GetEmployeeById), new { id = employeeId }, employeeId);
         }
 
-        // PUT: api/employees/update/{id}
         [HttpPut("update/{id}")]
         public async Task<ActionResult> UpdateEmployee(Guid id, UpdateEmployeeCommand command)
         {
             if (id != command.Id)
             {
-                return BadRequest(); // ID ne correspond pas
+                return BadRequest(); 
             }
 
             var result = await _mediator.Send(command);
             if (!result)
             {
-                return NotFound(); // Employé non trouvé
+                return NotFound(); 
             }
 
-            return NoContent(); // Mise à jour réussie
+            return NoContent(); 
         }
 
-        // DELETE: api/employees/delete/{id}
         [HttpDelete("delete/{id}")]
         public async Task<ActionResult> DeleteEmployee(Guid id)
         {
@@ -250,17 +242,16 @@ namespace StockManagement.Web.Controllers
 
             if (!result)
             {
-                return NotFound(); // Employé non trouvé
+                return NotFound(); 
             }
 
-            return NoContent(); // Suppression réussie
+            return NoContent(); 
         }
 
         #endregion Crud Employees
 
         #region PDF and EXCEL
 
-        // GET: api/employees/export
         [HttpGet("export")]
         public async Task<IActionResult> Export()
         {
@@ -272,7 +263,6 @@ namespace StockManagement.Web.Controllers
             return File(excelData, contentType, fileName);
         }
 
-        // POST: api/employees/import
         [HttpPost("import")]
         public async Task<IActionResult> Import(IFormFile file)
         {
@@ -287,19 +277,17 @@ namespace StockManagement.Web.Controllers
 
             var employees = await _excelService.ImportEmployeesFromExcel(stream);
 
-            // Logique pour ajouter les employés à la base de données avec MediatR
 
-            return Ok(employees); // Retourne la liste importée pour vérification
+            return Ok(employees); 
         }
 
-        // GET: api/employees/export/pdf
         [HttpGet("export/pdf")]
         public async Task<IActionResult> ExportPdf()
         {
             try
             {
                 var employees = await _mediator.Send(new GetEmployeesQuery());
-                var pdfData = _pdfService.ExportEmployeesToPdf(employees); // Appel synchronisé
+                var pdfData = _pdfService.ExportEmployeesToPdf(employees); 
 
                 var contentType = "application/pdf";
                 var fileName = "Employees.pdf";

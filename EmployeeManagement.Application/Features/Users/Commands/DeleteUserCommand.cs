@@ -22,12 +22,12 @@ namespace StockManagement.Application.Features.Users.Commands
             var user = await _context.Users.FindAsync(request.Id);
             if (user == null)
             {
-                return false; // Utilisateur non trouvé
+                return false; 
             }
 
             _context.Users.Remove(user);
             await _context.SaveChangesAsync(cancellationToken);
-            return true; // Suppression réussie
+            return true; 
         }
     }
 }

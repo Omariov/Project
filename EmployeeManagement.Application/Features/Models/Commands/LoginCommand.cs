@@ -1,5 +1,5 @@
 ﻿using StockManagement.Core.Entities;
-using StockManagement.Application.Services; // Ajoutez cette ligne pour importer votre service
+using StockManagement.Application.Services; 
 using StockManagement.Infrastructure;
 using MediatR;
 using Microsoft.EntityFrameworkCore;

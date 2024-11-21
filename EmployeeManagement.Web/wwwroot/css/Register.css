@@ -3,15 +3,15 @@
 }
 
 .header {
-    margin-top: 30px; /* Ajustez la valeur selon vos préférences */
-    background-color: #007bff; /* Ajout d'une couleur de fond bleue */
-    border-radius: 30px; /* Ajout d'arrondis pour plus d'esthétique */
+    margin-top: 30px; 
+    background-color: #007bff; 
+    border-radius: 30px; 
     padding: 20px;
 }
 
 
 .logo-img {
-    height: 50px; /* Ajustement de la hauteur pour un logo plus compact */
+    height: 50px; 
     width: auto;
 }
 
@@ -22,7 +22,7 @@
 }
 
     .nav-link:hover {
-        color: #adb5bd; /* Gris clair pour l'effet de survol */
+        color: #adb5bd; 
     }
 
 

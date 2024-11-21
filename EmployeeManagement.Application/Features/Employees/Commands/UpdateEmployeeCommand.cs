@@ -28,7 +28,7 @@ namespace StockManagement.Application.Features.Employees.Commands
 
             if (employee == null)
             {
-                return false; // Employé non trouvé
+                return false; 
             }
 
             employee.FirstName = request.FirstName;
@@ -38,7 +38,7 @@ namespace StockManagement.Application.Features.Employees.Commands
 
             await _context.SaveChangesAsync(cancellationToken);
 
-            return true; // Mise à jour réussie
+            return true; 
         }
     }
 

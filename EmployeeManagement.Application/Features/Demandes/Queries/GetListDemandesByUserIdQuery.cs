@@ -10,7 +10,6 @@ using System.Linq;
 
 namespace StockManagement.Application.Features.Demandes.Queries
 {
-    // Modifiez IRequest pour retourner une liste
     public class GetListDemandesByUserIdQuery : IRequest<List<GetListDemandesByUserIdResponseDTO>>
     {
         public Guid Id { get; set; }
@@ -27,7 +26,6 @@ namespace StockManagement.Application.Features.Demandes.Queries
 
         public async Task<List<GetListDemandesByUserIdResponseDTO>> Handle(GetListDemandesByUserIdQuery request, CancellationToken cancellationToken)
         {
-            // Chargement des demandes avec les entités nécessaires
             var demandes = await _context.Demandes
                 .Include(d => d.User)
                     .ThenInclude(u => u.UserDetails)
@@ -43,10 +41,9 @@ namespace StockManagement.Application.Features.Demandes.Queries
 
             if (demandes == null || !demandes.Any())
             {
-                return new List<GetListDemandesByUserIdResponseDTO>(); // Retourne une liste vide si aucune demande n'est trouvée
+                return new List<GetListDemandesByUserIdResponseDTO>(); 
             }
 
-            // Construction de la liste des produits et quantités
             var result = demandes.Select(d => new GetListDemandesByUserIdResponseDTO
             {
                 Id = d.Id,
@@ -57,7 +54,6 @@ namespace StockManagement.Application.Features.Demandes.Queries
                 ServiceNom = d.User.UserDetails.Service.Name,
                 StatusDemandeNom = d.HistoriqueStatusDemandes.FirstOrDefault()?.StatusDemande.StatusName,
 
-                // Création de la liste des produits et quantités pour chaque demande
                 LstProduitQuantiteDTOs = d.DemandeProduits.Select(dp => new ProduitQuantiteDTO
                 {
                     ProduitNom = dp.Produit.Name,

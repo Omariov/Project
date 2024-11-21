@@ -25,15 +25,16 @@ namespace StockManagement.Infrastructure
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<DemandeProduit> DemandeProduits { get; set; }
         public DbSet<HistoriqueStatusDemande> HistoriqueStatusDemandes { get; set; }
+        public DbSet<Emplacement> Emplacements { get; set; }
 
 
-        protected override void OnModelCreating(ModelBuilder modelBuilder) // Mettez cette méthode à l'intérieur de la classe
+        protected override void OnModelCreating(ModelBuilder modelBuilder) 
         {
             base.OnModelCreating(modelBuilder);
 
             modelBuilder.Entity<Employee>()
                 .Property(e => e.Salary)
-                .HasColumnType("decimal(18,2)"); // Spécifiez la précision et l'échelle ici
+                .HasColumnType("decimal(18,2)"); 
 
            
         }

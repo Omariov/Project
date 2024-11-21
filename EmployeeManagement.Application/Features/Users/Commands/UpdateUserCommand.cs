@@ -10,7 +10,7 @@ namespace StockManagement.Application.Features.Users.Commands
         public Guid Id { get; set; }
         public string Username { get; set; }
         public string Password { get; set; }
-        public int RoleId { get; set; } // Référence au rôle
+        public int RoleId { get; set; } 
     }
 
     public class UpdateUserHandler : IRequestHandler<UpdateUserCommand, bool>
@@ -31,18 +31,18 @@ namespace StockManagement.Application.Features.Users.Commands
 
             if (user == null)
             {
-                return false; // Utilisateur non trouvé
+                return false; 
             }
 
             user.Username = request.Username;
             if (!string.IsNullOrEmpty(request.Password))
             {
-                user.PasswordHash = _IpasswordHasher.HashPassword(request.Password); // Hachage si le mot de passe est fourni
+                user.PasswordHash = _IpasswordHasher.HashPassword(request.Password); 
             }
             user.RoleId = request.RoleId;
 
             await _context.SaveChangesAsync(cancellationToken);
-            return true; // Mise à jour réussie
+            return true; 
         }
 
     }

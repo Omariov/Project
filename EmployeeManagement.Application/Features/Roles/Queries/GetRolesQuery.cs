@@ -33,7 +33,6 @@ namespace StockManagement.Application.Features.Roles.Queries
                 {
                     Id = role.Id,
                     Name = role.Name,
-                    // Vous pouvez éventuellement remplir la liste des utilisateurs ici si nécessaire
                 });
             }
 

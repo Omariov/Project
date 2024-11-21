@@ -3,7 +3,7 @@
 
 @{
     ViewData["Title"] = "Connexion";
-    Layout = null;  // Assurez-vous que vous avez un layout général
+    Layout = null;  
 }
 
 <!DOCTYPE html>
@@ -13,20 +13,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewData["Title"]</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-    <link rel="stylesheet" href="~/css/Login.css"> <!-- Ajout du fichier CSS spécifique pour la page de login -->
+    <link rel="stylesheet" href="~/css/Login.css"> 
 </head>
 <body class="bg-light">
 
     <div class="container">
-        <!-- Header -->
         <header class="header text-white py-3 mb-4">
             <div class="container d-flex justify-content-between align-items-center">
-                <!-- Logo à gauche -->
                 <div class="logo">
                     <img src="~/images/HCP1.jpeg" alt="Logo" class="logo-img">
                 </div>
 
-                <!-- Menu de navigation à droite -->
                 <nav>
                     <ul class="navbar-nav d-flex flex-row">
                         <li class="nav-item mx-3">
@@ -41,14 +38,12 @@
         </header>
 
 
-        <!-- Formulaire de connexion -->
         <div class="row justify-content-center">
             <div class="col-md-6 col-lg-4">
                 <div class="card shadow-sm">
                     <div class="card-body">
                         <h2 class="text-center mb-4">Se connecter</h2>
 
-                        <!-- Affichage des erreurs globales -->
                         @if (!ViewData.ModelState.IsValid)
                         {
                             <div class="alert alert-danger">
@@ -61,7 +56,6 @@
                             </div>
                         }
 
-                        <!-- Formulaire de connexion -->
                         <form method="post" action="/api/Employees/login">
                             <div class="form-group">
                                 <label for="Username">Nom d'utilisateur</label>
@@ -88,7 +82,6 @@
             </div>
         </div>
 
-        <!-- Footer -->
         <footer class="text-center py-3 mt-5">
             <p>Contactez-nous : <a href="mailto:ibrahimiomar80@gmail.com">ibrahimiomar80@gmail.com</a></p>
             <p>&copy; 2024 HCP</p>

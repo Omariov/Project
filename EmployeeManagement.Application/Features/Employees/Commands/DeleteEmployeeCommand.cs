@@ -24,13 +24,13 @@ namespace StockManagement.Application.Features.Employees.Commands
 
             if (employee == null)
             {
-                return false; // Employé non trouvé
+                return false; 
             }
 
             _context.Employees.Remove(employee);
             await _context.SaveChangesAsync(cancellationToken);
 
-            return true; // Suppression réussie
+            return true;
         }
     }
 

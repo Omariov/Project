@@ -24,7 +24,7 @@ namespace StockManagement.Application.Features.Users.Queries
             var user = await _context.Users.FirstOrDefaultAsync(u => u.Id == request.Id, cancellationToken);
             if (user == null)
             {
-                return null; // Utilisateur non trouvé
+                return null; 
             }
 
             return new UserDto

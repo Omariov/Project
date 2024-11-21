@@ -3,15 +3,15 @@
 }
 
 .header {
-    margin-top: 30px; /* Ajustez la valeur selon vos préférences */
-    background-color: #007bff; /* Ajout d'une couleur de fond bleue */
-    border-radius: 30px; /* Ajout d'arrondis pour plus d'esthétique */
+    margin-top: 30px; 
+    background-color: #007bff; 
+    border-radius: 30px; 
     padding: 20px;
 }
 
 
 .logo-img {
-    height: 50px; /* Ajustement de la hauteur pour un logo plus compact */
+    height: 50px; 
     width: auto;
 }
 
@@ -22,20 +22,20 @@
 }
 
     .nav-link:hover {
-        color: #adb5bd; /* Gris clair pour l'effet de survol */
+        color: #adb5bd; 
     }
 
 
 .card {
     border: none;
-    background-color: #ffffff; /* Couleur de fond blanc */
+    background-color: #ffffff; 
     border-radius: 8px;
 }
 
 .card-body h2 {
     font-size: 24px;
     font-weight: bold;
-    color: #343a40; /* Gris foncé pour les titres */
+    color: #343a40; 
 }
 
 .alert-danger {
@@ -47,12 +47,12 @@
 
 .form-group label {
     font-weight: bold;
-    color: #343a40; /* Gris foncé pour les étiquettes */
+    color: #343a40; 
 }
 
 .form-control {
     border-radius: 5px;
-    border: 1px solid #ced4da; /* Bordure gris clair */
+    border: 1px solid #ced4da; 
     padding: 10px;
 }
 
@@ -62,7 +62,7 @@
     }
 
 .form-check-label {
-    color: #343a40; /* Couleur pour "Se souvenir de moi" */
+    color: #343a40; 
 }
 
 .btn-primary {

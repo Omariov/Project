@@ -8,9 +8,9 @@ namespace StockManagement.Core.Entities
         public Guid ArticleId { get; set; }
         public Article Article { get; set; }
 
-        public string Location { get; set; } // Emplacement actuel de l'article
+        public Guid EmplacementId { get; set; }
+        public Emplacement Emplacement { get; set; }
         public DateTime MovementDate { get; set; }
-        public bool Instock{ get; set; }
 
     }
 }

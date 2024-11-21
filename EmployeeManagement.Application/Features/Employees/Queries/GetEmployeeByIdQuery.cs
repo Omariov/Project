@@ -26,7 +26,7 @@ namespace StockManagement.Application.Features.Employees.Queries
 
             if (employee == null)
             {
-                return null; // Employé non trouvé
+                return null; 
             }
 
             return new EmployeeDto

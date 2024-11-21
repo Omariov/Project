@@ -5,6 +5,8 @@
         public int Quantity { get; set; }
         public Guid ProduitId { get; set; }
         public Produit Produit { get; set; }
+        public bool Instock { get; set; }
+
 
     }
 }
