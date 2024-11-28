@@ -19,7 +19,7 @@ var pdfTools = new PdfTools();
 var converter = new SynchronizedConverter(pdfTools);
 
 builder.Services.AddSingleton<IConverter>(converter);
-builder.Services.AddSingleton<RazorViewToStringRenderer>();
+builder.Services.AddScoped<RazorViewToStringRenderer>();
 
 builder.Services.AddRazorPages();
 builder.Services.AddControllers();

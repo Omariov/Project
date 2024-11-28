@@ -1,0 +1,382 @@
+2024-11-21T16:03:36.4588992+01:00  [INF] User profile is available. Using '"C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2024-11-21T16:03:36.6419771+01:00  [INF] Now listening on: "https://localhost:7025" (d826f4b8)
+2024-11-21T16:03:36.6420968+01:00  [INF] Now listening on: "http://localhost:5222" (d826f4b8)
+2024-11-21T16:03:36.6709714+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2024-11-21T16:03:36.6713824+01:00  [INF] Hosting environment: "Development" (bc5a1a4e)
+2024-11-21T16:03:36.6714243+01:00  [INF] Content root path: "C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web" (cc26f24e)
+2024-11-21T16:03:37.2413204+01:00 0HN8A7MMG7RLA:00000001 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/index.html""" - null null (d509f86a)
+2024-11-21T16:03:37.3755943+01:00 0HN8A7MMG7RLA:00000001 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/index.html""" - 404 0 null 138.2277ms (74253ad3)
+2024-11-21T16:03:37.3774123+01:00 0HN8A7MMG7RLA:00000001 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:7025""""/index.html", Response status code: 404 (e353595a)
+2024-11-21T16:03:44.8152184+01:00 0HN8A7MMG7RLB:00000001 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:03:44.8219643+01:00 0HN8A7MMG7RLB:00000001 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 6.7938ms (74253ad3)
+2024-11-21T16:03:49.8347926+01:00 0HN8A7MMG7RLA:00000003 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - null null (d509f86a)
+2024-11-21T16:03:50.4383128+01:00 0HN8A7MMG7RLA:00000005 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - null null (d509f86a)
+2024-11-21T16:03:50.4541157+01:00 0HN8A7MMG7RLA:00000003 [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (500cc934)
+2024-11-21T16:03:50.4541160+01:00 0HN8A7MMG7RLA:00000005 [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (500cc934)
+2024-11-21T16:03:50.4632890+01:00 0HN8A7MMG7RLA:00000005 [INF] Route matched with "{action = \"Acceuil\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Acceuil()" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:03:50.4632925+01:00 0HN8A7MMG7RLA:00000003 [INF] Route matched with "{action = \"Acceuil\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Acceuil()" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:03:50.5802587+01:00 0HN8A7MMG7RLA:00000003 [INF] Executing ViewResult, running view "Acceuil". (c83d0e25)
+2024-11-21T16:03:50.5802590+01:00 0HN8A7MMG7RLA:00000005 [INF] Executing ViewResult, running view "Acceuil". (c83d0e25)
+2024-11-21T16:03:50.6035631+01:00 0HN8A7MMG7RLA:00000003 [INF] Executed ViewResult - view "Acceuil" executed in 24.2357ms. (f66409e9)
+2024-11-21T16:03:50.6035653+01:00 0HN8A7MMG7RLA:00000005 [INF] Executed ViewResult - view "Acceuil" executed in 24.2485ms. (f66409e9)
+2024-11-21T16:03:50.6041996+01:00 0HN8A7MMG7RLA:00000003 [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)" in 140.3628ms (afa2e885)
+2024-11-21T16:03:50.6042057+01:00 0HN8A7MMG7RLA:00000005 [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)" in 140.3885ms (afa2e885)
+2024-11-21T16:03:50.6042715+01:00 0HN8A7MMG7RLA:00000003 [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:03:50.6042767+01:00 0HN8A7MMG7RLA:00000005 [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:03:50.6071954+01:00 0HN8A7MMG7RLA:00000005 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - 200 null "text/html; charset=utf-8" 168.9105ms (74253ad3)
+2024-11-21T16:03:50.6071969+01:00 0HN8A7MMG7RLA:00000003 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - 200 null "text/html; charset=utf-8" 772.5313ms (74253ad3)
+2024-11-21T16:03:50.6348408+01:00 0HN8A7MMG7RLA:00000007 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:03:50.6365371+01:00 0HN8A7MMG7RLA:00000009 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - null null (d509f86a)
+2024-11-21T16:03:50.6367157+01:00 0HN8A7MMG7RLA:00000007 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 2.3429ms (74253ad3)
+2024-11-21T16:03:50.6643784+01:00 0HN8A7MMG7RLA:00000009 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 27.9315ms (74253ad3)
+2024-11-21T16:03:51.8844666+01:00 0HN8A7MMG7RLA:0000000B [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees/Login""" - null null (d509f86a)
+2024-11-21T16:03:51.8927654+01:00 0HN8A7MMG7RLA:0000000B [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (500cc934)
+2024-11-21T16:03:51.8953544+01:00 0HN8A7MMG7RLA:0000000B [INF] Route matched with "{action = \"Login\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Login()" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:03:51.9003306+01:00 0HN8A7MMG7RLA:0000000B [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2024-11-21T16:03:51.9063840+01:00 0HN8A7MMG7RLA:0000000B [INF] Executed ViewResult - view "Login" executed in 6.7331ms. (f66409e9)
+2024-11-21T16:03:51.9065915+01:00 0HN8A7MMG7RLA:0000000B [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)" in 11.1093ms (afa2e885)
+2024-11-21T16:03:51.9066370+01:00 0HN8A7MMG7RLA:0000000B [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:03:51.9068070+01:00 0HN8A7MMG7RLA:0000000B [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees/Login""" - 200 null "text/html; charset=utf-8" 22.5921ms (74253ad3)
+2024-11-21T16:03:51.9346798+01:00 0HN8A7MMG7RLA:0000000D [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - null null (d509f86a)
+2024-11-21T16:03:51.9353245+01:00 0HN8A7MMG7RLA:0000000F [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:03:51.9364815+01:00 0HN8A7MMG7RLA:0000000F [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 0.9042ms (74253ad3)
+2024-11-21T16:03:51.9507174+01:00 0HN8A7MMG7RLA:0000000D [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 16.0471ms (74253ad3)
+2024-11-21T16:03:53.0055765+01:00 0HN8A7MMG7RLA:00000011 [INF] Request starting "HTTP/2" "POST" "https"://"localhost:7025""""/api/Employees/login""" - "application/x-www-form-urlencoded" 28 (d509f86a)
+2024-11-21T16:03:53.0122750+01:00 0HN8A7MMG7RLA:00000011 [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (500cc934)
+2024-11-21T16:03:53.0263081+01:00 0HN8A7MMG7RLA:00000011 [INF] Route matched with "{action = \"Login\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(StockManagement.Application.Features.Models.Commands.LoginCommand)" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:03:53.8323909+01:00 0HN8A7MMG7RLA:00000011 [INF] Executed DbCommand ("32"ms) [Parameters=["@__request_Username_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[IsDeleted], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__request_Username_0" (0723d8ff)
+2024-11-21T16:03:53.9055570+01:00 0HN8A7MMG7RLA:00000011 [INF] Executed DbCommand ("5"ms) [Parameters=["@__model_Username_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[IsDeleted], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__model_Username_0" (0723d8ff)
+2024-11-21T16:03:53.9089663+01:00 0HN8A7MMG7RLA:00000011 [INF] AuthenticationScheme: "Cookies" signed in. (c66dd7e7)
+2024-11-21T16:03:53.9191086+01:00 0HN8A7MMG7RLA:00000011 [INF] Executing RedirectResult, redirecting to "/api/Demandes/GetListDemandesByUserId". (d98d540e)
+2024-11-21T16:03:53.9196434+01:00 0HN8A7MMG7RLA:00000011 [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)" in 893.2707ms (afa2e885)
+2024-11-21T16:03:53.9198082+01:00 0HN8A7MMG7RLA:00000011 [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:03:53.9231347+01:00 0HN8A7MMG7RLA:00000011 [INF] Request finished "HTTP/2" "POST" "https"://"localhost:7025""""/api/Employees/login""" - 302 0 null 917.5832ms (74253ad3)
+2024-11-21T16:03:53.9236896+01:00 0HN8A7MMG7RLA:00000013 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/GetListDemandesByUserId""" - null null (d509f86a)
+2024-11-21T16:03:53.9296809+01:00 0HN8A7MMG7RLA:00000013 [INF] Executing endpoint '"DemandesController.GetListDemandesByUserId (StockManagement.Web)"' (500cc934)
+2024-11-21T16:03:53.9318206+01:00 0HN8A7MMG7RLA:00000013 [INF] Route matched with "{action = \"GetListDemandesByUserId\", controller = \"Demandes\", page = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetListDemandesByUserId()" on controller "DemandesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:03:54.0208438+01:00 0HN8A7MMG7RLA:00000013 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2024-11-21T16:03:54.0463690+01:00 0HN8A7MMG7RLA:00000013 [INF] Executed DbCommand ("13"ms) [Parameters=["@__request_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[Id], [d].[CreatedBy], [d].[CreatedDate], [d].[DemandeNumber], [d].[IsDeleted], [d].[ModifiedBy], [d].[ModifiedDate], [d].[UserId], [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[IsDeleted], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[RoleId], [u].[Username], [u0].[Id], [u0].[CreatedBy], [u0].[CreatedDate], [u0].[Email], [u0].[IsDeleted], [u0].[ModifiedBy], [u0].[ModifiedDate], [u0].[Nom], [u0].[Prenom], [u0].[ServiceId], [u0].[UserId], [s].[Id], [s].[CreatedBy], [s].[CreatedDate], [s].[DivisionId], [s].[IsDeleted], [s].[ModifiedBy], [s].[ModifiedDate], [s].[Name], [d0].[Id], [d0].[CreatedBy], [d0].[CreatedDate], [d0].[DirectionId], [d0].[IsDeleted], [d0].[ModifiedBy], [d0].[ModifiedDate], [d0].[Name], [d1].[Id], [d1].[CreatedBy], [d1].[CreatedDate], [d1].[IsDeleted], [d1].[ModifiedBy], [d1].[ModifiedDate], [d1].[Name], [t0].[Id], [t0].[CreatedBy], [t0].[CreatedDate], [t0].[DemandeId], [t0].[IsDeleted], [t0].[ModifiedBy], [t0].[ModifiedDate], [t0].[StatusDemandeId], [t0].[Id0], [t0].[CreatedBy0], [t0].[CreatedDate0], [t0].[IsDeleted0], [t0].[ModifiedBy0], [t0].[ModifiedDate0], [t0].[StatusName], [t1].[Id], [t1].[CreatedBy], [t1].[CreatedDate], [t1].[DemandeId], [t1].[IsDeleted], [t1].[Livré], [t1].[ModifiedBy], [t1].[ModifiedDate], [t1].[ProduitId], [t1].[Quantité], [t1].[Id0], [t1].[CreatedBy0], [t1].[CreatedDate0], [t1].[IsDeleted0], [t1].[ModifiedBy0], [t1].[ModifiedDate0], [t1].[Name]
+FROM [Demandes] AS [d]
+INNER JOIN [Users] AS [u] ON [d].[UserId] = [u].[Id]
+LEFT JOIN [UserDetails] AS [u0] ON [u].[Id] = [u0].[UserId]
+LEFT JOIN [Services] AS [s] ON [u0].[ServiceId] = [s].[Id]
+LEFT JOIN [Divisions] AS [d0] ON [s].[DivisionId] = [d0].[Id]
+LEFT JOIN [Directions] AS [d1] ON [d0].[DirectionId] = [d1].[Id]
+OUTER APPLY (
+    SELECT [t].[Id], [t].[CreatedBy], [t].[CreatedDate], [t].[DemandeId], [t].[IsDeleted], [t].[ModifiedBy], [t].[ModifiedDate], [t].[StatusDemandeId], [s0].[Id] AS [Id0], [s0].[CreatedBy] AS [CreatedBy0], [s0].[CreatedDate] AS [CreatedDate0], [s0].[IsDeleted] AS [IsDeleted0], [s0].[ModifiedBy] AS [ModifiedBy0], [s0].[ModifiedDate] AS [ModifiedDate0], [s0].[StatusName]
+    FROM (
+        SELECT TOP(1) [h].[Id], [h].[CreatedBy], [h].[CreatedDate], [h].[DemandeId], [h].[IsDeleted], [h].[ModifiedBy], [h].[ModifiedDate], [h].[StatusDemandeId]
+        FROM [HistoriqueStatusDemandes] AS [h]
+        WHERE [d].[Id] = [h].[DemandeId]
+        ORDER BY [h].[CreatedDate] DESC
+    ) AS [t]
+    INNER JOIN [StatusDemandes] AS [s0] ON [t].[StatusDemandeId] = [s0].[Id]
+) AS [t0]
+LEFT JOIN (
+    SELECT [d2].[Id], [d2].[CreatedBy], [d2].[CreatedDate], [d2].[DemandeId], [d2].[IsDeleted], [d2].[Livré], [d2].[ModifiedBy], [d2].[ModifiedDate], [d2].[ProduitId], [d2].[Quantité], [p].[Id] AS [Id0], [p].[CreatedBy] AS [CreatedBy0], [p].[CreatedDate] AS [CreatedDate0], [p].[IsDeleted] AS [IsDeleted0], [p].[ModifiedBy] AS [ModifiedBy0], [p].[ModifiedDate] AS [ModifiedDate0], [p].[Name]
+    FROM [DemandeProduits] AS [d2]
+    INNER JOIN [Produits] AS [p] ON [d2].[ProduitId] = [p].[Id]
+) AS [t1] ON [d].[Id] = [t1].[DemandeId]
+WHERE [d].[UserId] = @__request_Id_0
+ORDER BY [d].[Id], [u].[Id], [u0].[Id], [s].[Id], [d0].[Id], [d1].[Id], [t0].[CreatedDate] DESC, [t0].[Id], [t0].[Id0], [t1].[Id]" (0723d8ff)
+2024-11-21T16:03:54.1524097+01:00 0HN8A7MMG7RLA:00000013 [INF] Executing ViewResult, running view "DemandesListRequester". (c83d0e25)
+2024-11-21T16:03:54.1613389+01:00 0HN8A7MMG7RLA:00000013 [INF] Executed ViewResult - view "DemandesListRequester" executed in 9.1937ms. (f66409e9)
+2024-11-21T16:03:54.1614366+01:00 0HN8A7MMG7RLA:00000013 [INF] Executed action "DemandesController.GetListDemandesByUserId (StockManagement.Web)" in 229.5467ms (afa2e885)
+2024-11-21T16:03:54.1614687+01:00 0HN8A7MMG7RLA:00000013 [INF] Executed endpoint '"DemandesController.GetListDemandesByUserId (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:03:54.1618736+01:00 0HN8A7MMG7RLA:00000013 [WRN] Unable to configure Browser Link script injection on the response.  (ece93296)
+2024-11-21T16:03:54.1620528+01:00 0HN8A7MMG7RLA:00000013 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. (5302a7e1)
+2024-11-21T16:03:54.1622307+01:00 0HN8A7MMG7RLA:00000013 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/GetListDemandesByUserId""" - 200 null "text/html; charset=utf-8" 238.6225ms (74253ad3)
+2024-11-21T16:03:58.0235414+01:00 0HN8A7MMG7RLA:00000015 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - null null (d509f86a)
+2024-11-21T16:03:58.0279564+01:00 0HN8A7MMG7RLA:00000015 [INF] Executing endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (500cc934)
+2024-11-21T16:03:58.0291749+01:00 0HN8A7MMG7RLA:00000015 [INF] Route matched with "{action = \"CreateDemande\", controller = \"Demandes\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CreateDemande()" on controller "DemandesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:03:58.0852457+01:00 0HN8A7MMG7RLA:00000015 [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Name]
+FROM (
+    SELECT DISTINCT [p].[Id], [p].[CreatedBy], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedBy], [p].[ModifiedDate], [p].[Name]
+    FROM [Produits] AS [p]
+) AS [t]" (0723d8ff)
+2024-11-21T16:03:58.0869137+01:00 0HN8A7MMG7RLA:00000015 [INF] Executing ViewResult, running view "CreateDemande". (c83d0e25)
+2024-11-21T16:03:58.0890447+01:00 0HN8A7MMG7RLA:00000015 [INF] Executed ViewResult - view "CreateDemande" executed in 2.4703ms. (f66409e9)
+2024-11-21T16:03:58.0890804+01:00 0HN8A7MMG7RLA:00000015 [INF] Executed action "DemandesController.CreateDemande (StockManagement.Web)" in 59.8448ms (afa2e885)
+2024-11-21T16:03:58.0890991+01:00 0HN8A7MMG7RLA:00000015 [INF] Executed endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:03:58.0891367+01:00 0HN8A7MMG7RLA:00000015 [WRN] Unable to configure Browser Link script injection on the response.  (ece93296)
+2024-11-21T16:03:58.0891546+01:00 0HN8A7MMG7RLA:00000015 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. (5302a7e1)
+2024-11-21T16:03:58.0892403+01:00 0HN8A7MMG7RLA:00000015 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - 200 null "text/html; charset=utf-8" 65.9454ms (74253ad3)
+2024-11-21T16:03:58.1112645+01:00 0HN8A7MMG7RLA:00000017 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/css/CreateDemande.css""" - null null (d509f86a)
+2024-11-21T16:03:58.1145723+01:00 0HN8A7MMG7RLA:00000017 [INF] The file "/css/CreateDemande.css" was not modified (f1f8d725)
+2024-11-21T16:03:58.1151019+01:00 0HN8A7MMG7RLA:00000017 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/css/CreateDemande.css""" - 304 null "text/css" 4.0675ms (74253ad3)
+2024-11-21T16:04:05.9529200+01:00 0HN8A7MMG7RLA:00000019 [INF] Request starting "HTTP/2" "POST" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - "application/x-www-form-urlencoded" 581 (d509f86a)
+2024-11-21T16:04:05.9555461+01:00 0HN8A7MMG7RLA:00000019 [INF] Executing endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (500cc934)
+2024-11-21T16:04:05.9594255+01:00 0HN8A7MMG7RLA:00000019 [INF] Route matched with "{action = \"CreateDemande\", controller = \"Demandes\", page = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDemande(StockManagement.Application.Features.Demandes.DTOs.CreateDemandeDTO)" on controller "DemandesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:04:05.9666154+01:00 0HN8A7MMG7RLA:00000019 [INF] Executing "BadRequestObjectResult", writing value of type '"Microsoft.AspNetCore.Mvc.ValidationProblemDetails"'. (605b4265)
+2024-11-21T16:04:05.9791537+01:00 0HN8A7MMG7RLA:00000019 [INF] Executed action "DemandesController.CreateDemande (StockManagement.Web)" in 19.6676ms (afa2e885)
+2024-11-21T16:04:05.9791851+01:00 0HN8A7MMG7RLA:00000019 [INF] Executed endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:04:05.9792700+01:00 0HN8A7MMG7RLA:00000019 [INF] Request finished "HTTP/2" "POST" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - 400 null "application/problem+json; charset=utf-8" 26.5067ms (74253ad3)
+2024-11-21T16:10:01.9353058+01:00  [INF] User profile is available. Using '"C:\Users\LENOVO\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest. (7ac5e29c)
+2024-11-21T16:10:02.1065289+01:00  [INF] Now listening on: "https://localhost:7025" (d826f4b8)
+2024-11-21T16:10:02.1066304+01:00  [INF] Now listening on: "http://localhost:5222" (d826f4b8)
+2024-11-21T16:10:02.1432199+01:00  [INF] Application started. Press Ctrl+C to shut down. (dcaefe54)
+2024-11-21T16:10:02.1436435+01:00  [INF] Hosting environment: "Development" (bc5a1a4e)
+2024-11-21T16:10:02.1436964+01:00  [INF] Content root path: "C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web" (cc26f24e)
+2024-11-21T16:10:02.3606591+01:00 0HN8A7Q9AIDNK:00000001 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/index.html""" - null null (d509f86a)
+2024-11-21T16:10:02.4800862+01:00 0HN8A7Q9AIDNK:00000001 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/index.html""" - 404 0 null 122.644ms (74253ad3)
+2024-11-21T16:10:02.4826927+01:00 0HN8A7Q9AIDNK:00000001 [INF] Request reached the end of the middleware pipeline without being handled by application code. Request path: "GET" "https"://"localhost:7025""""/index.html", Response status code: 404 (e353595a)
+2024-11-21T16:10:04.4317021+01:00 0HN8A7Q9AIDNK:00000003 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - null null (d509f86a)
+2024-11-21T16:10:04.4373383+01:00 0HN8A7Q9AIDNK:00000003 [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:04.4475067+01:00 0HN8A7Q9AIDNK:00000003 [INF] Route matched with "{action = \"Acceuil\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Acceuil()" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:04.5565572+01:00 0HN8A7Q9AIDNK:00000003 [INF] Executing ViewResult, running view "Acceuil". (c83d0e25)
+2024-11-21T16:10:04.5809506+01:00 0HN8A7Q9AIDNK:00000003 [INF] Executed ViewResult - view "Acceuil" executed in 24.7304ms. (f66409e9)
+2024-11-21T16:10:04.5815312+01:00 0HN8A7Q9AIDNK:00000003 [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)" in 133.6516ms (afa2e885)
+2024-11-21T16:10:04.5816301+01:00 0HN8A7Q9AIDNK:00000003 [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:04.5846600+01:00 0HN8A7Q9AIDNK:00000003 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - 200 null "text/html; charset=utf-8" 153.048ms (74253ad3)
+2024-11-21T16:10:04.6241162+01:00 0HN8A7Q9AIDNK:00000005 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:10:04.6248960+01:00 0HN8A7Q9AIDNK:00000007 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - null null (d509f86a)
+2024-11-21T16:10:04.6398981+01:00 0HN8A7Q9AIDNK:00000005 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 16.182ms (74253ad3)
+2024-11-21T16:10:04.6574342+01:00 0HN8A7Q9AIDNK:00000007 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 33.2325ms (74253ad3)
+2024-11-21T16:10:11.9440948+01:00 0HN8A7Q9AIDNL:00000001 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - null null (d509f86a)
+2024-11-21T16:10:11.9492617+01:00 0HN8A7Q9AIDNL:00000001 [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:11.9495478+01:00 0HN8A7Q9AIDNL:00000001 [INF] Route matched with "{action = \"Acceuil\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Acceuil()" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:11.9562028+01:00 0HN8A7Q9AIDNL:00000001 [INF] Executing ViewResult, running view "Acceuil". (c83d0e25)
+2024-11-21T16:10:11.9587842+01:00 0HN8A7Q9AIDNL:00000001 [INF] Executed ViewResult - view "Acceuil" executed in 2.7741ms. (f66409e9)
+2024-11-21T16:10:11.9589133+01:00 0HN8A7Q9AIDNL:00000001 [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)" in 9.2895ms (afa2e885)
+2024-11-21T16:10:11.9589441+01:00 0HN8A7Q9AIDNL:00000001 [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Acceuil (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:11.9590632+01:00 0HN8A7Q9AIDNL:00000001 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees""" - 200 null "text/html; charset=utf-8" 15.3679ms (74253ad3)
+2024-11-21T16:10:11.9768243+01:00 0HN8A7Q9AIDNL:00000003 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/css/Acceuil.css""" - null null (d509f86a)
+2024-11-21T16:10:11.9769246+01:00 0HN8A7Q9AIDNL:00000005 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:10:11.9769380+01:00 0HN8A7Q9AIDNL:00000007 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/images/HCP1.jpeg""" - null null (d509f86a)
+2024-11-21T16:10:11.9771936+01:00 0HN8A7Q9AIDNL:00000009 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - null null (d509f86a)
+2024-11-21T16:10:11.9784169+01:00 0HN8A7Q9AIDNL:00000005 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 1.7179ms (74253ad3)
+2024-11-21T16:10:11.9934069+01:00 0HN8A7Q9AIDNL:00000003 [INF] Sending file. Request path: '"/css/Acceuil.css"'. Physical path: '"C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\wwwroot\css\Acceuil.css"' (27b0a520)
+2024-11-21T16:10:11.9936081+01:00 0HN8A7Q9AIDNL:00000003 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/css/Acceuil.css""" - 200 1366 "text/css" 16.9918ms (74253ad3)
+2024-11-21T16:10:11.9966988+01:00 0HN8A7Q9AIDNL:00000007 [INF] Sending file. Request path: '"/images/HCP1.jpeg"'. Physical path: '"C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\wwwroot\images\HCP1.jpeg"' (27b0a520)
+2024-11-21T16:10:11.9973018+01:00 0HN8A7Q9AIDNL:00000009 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 20.4734ms (74253ad3)
+2024-11-21T16:10:11.9979261+01:00 0HN8A7Q9AIDNL:00000007 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/images/HCP1.jpeg""" - 200 13452 "image/jpeg" 21.2949ms (74253ad3)
+2024-11-21T16:10:12.2078729+01:00 0HN8A7Q9AIDNL:0000000B [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/favicon.ico""" - null null (d509f86a)
+2024-11-21T16:10:12.2110118+01:00 0HN8A7Q9AIDNL:0000000B [INF] Sending file. Request path: '"/favicon.ico"'. Physical path: '"C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\wwwroot\favicon.ico"' (27b0a520)
+2024-11-21T16:10:12.2111795+01:00 0HN8A7Q9AIDNL:0000000B [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/favicon.ico""" - 200 5430 "image/x-icon" 3.8397ms (74253ad3)
+2024-11-21T16:10:13.7454763+01:00 0HN8A7Q9AIDNL:0000000D [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees/Login""" - null null (d509f86a)
+2024-11-21T16:10:13.7479449+01:00 0HN8A7Q9AIDNL:0000000D [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:13.7492180+01:00 0HN8A7Q9AIDNL:0000000D [INF] Route matched with "{action = \"Login\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult Login()" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:13.7510707+01:00 0HN8A7Q9AIDNL:0000000D [INF] Executing ViewResult, running view "Login". (c83d0e25)
+2024-11-21T16:10:13.7556222+01:00 0HN8A7Q9AIDNL:0000000D [INF] Executed ViewResult - view "Login" executed in 4.9219ms. (f66409e9)
+2024-11-21T16:10:13.7556772+01:00 0HN8A7Q9AIDNL:0000000D [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)" in 6.423ms (afa2e885)
+2024-11-21T16:10:13.7556975+01:00 0HN8A7Q9AIDNL:0000000D [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:13.7558158+01:00 0HN8A7Q9AIDNL:0000000D [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Employees/Login""" - 200 null "text/html; charset=utf-8" 10.5118ms (74253ad3)
+2024-11-21T16:10:13.7634920+01:00 0HN8A7Q9AIDNL:0000000F [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/css/Login.css""" - null null (d509f86a)
+2024-11-21T16:10:13.7634885+01:00 0HN8A7Q9AIDNL:00000011 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - null null (d509f86a)
+2024-11-21T16:10:13.7634885+01:00 0HN8A7Q9AIDNL:00000013 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:10:13.7641321+01:00 0HN8A7Q9AIDNL:00000013 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 0.9808ms (74253ad3)
+2024-11-21T16:10:13.7654823+01:00 0HN8A7Q9AIDNL:0000000F [INF] Sending file. Request path: '"/css/Login.css"'. Physical path: '"C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\wwwroot\css\Login.css"' (27b0a520)
+2024-11-21T16:10:13.7662143+01:00 0HN8A7Q9AIDNL:0000000F [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/css/Login.css""" - 200 1625 "text/css" 3.1075ms (74253ad3)
+2024-11-21T16:10:13.7747625+01:00 0HN8A7Q9AIDNL:00000011 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 11.5832ms (74253ad3)
+2024-11-21T16:10:15.7115189+01:00 0HN8A7Q9AIDNL:00000015 [INF] Request starting "HTTP/2" "POST" "https"://"localhost:7025""""/api/Employees/login""" - "application/x-www-form-urlencoded" 28 (d509f86a)
+2024-11-21T16:10:15.7151307+01:00 0HN8A7Q9AIDNL:00000015 [INF] Executing endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:15.7258614+01:00 0HN8A7Q9AIDNL:00000015 [INF] Route matched with "{action = \"Login\", controller = \"Employees\", page = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] Login(StockManagement.Application.Features.Models.Commands.LoginCommand)" on controller "StockManagement.Web.Controllers.EmployeesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:16.5366659+01:00 0HN8A7Q9AIDNL:00000015 [INF] Executed DbCommand ("35"ms) [Parameters=["@__request_Username_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[IsDeleted], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__request_Username_0" (0723d8ff)
+2024-11-21T16:10:16.6029614+01:00 0HN8A7Q9AIDNL:00000015 [INF] Executed DbCommand ("5"ms) [Parameters=["@__model_Username_0='?' (Size = 4000)"], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[IsDeleted], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[RoleId], [u].[Username]
+FROM [Users] AS [u]
+WHERE [u].[Username] = @__model_Username_0" (0723d8ff)
+2024-11-21T16:10:16.6065158+01:00 0HN8A7Q9AIDNL:00000015 [INF] AuthenticationScheme: "Cookies" signed in. (c66dd7e7)
+2024-11-21T16:10:16.6162210+01:00 0HN8A7Q9AIDNL:00000015 [INF] Executing RedirectResult, redirecting to "/api/Demandes/GetListDemandesByUserId". (d98d540e)
+2024-11-21T16:10:16.6167828+01:00 0HN8A7Q9AIDNL:00000015 [INF] Executed action "StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)" in 890.8491ms (afa2e885)
+2024-11-21T16:10:16.6169371+01:00 0HN8A7Q9AIDNL:00000015 [INF] Executed endpoint '"StockManagement.Web.Controllers.EmployeesController.Login (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:16.6201913+01:00 0HN8A7Q9AIDNL:00000017 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/GetListDemandesByUserId""" - null null (d509f86a)
+2024-11-21T16:10:16.6206311+01:00 0HN8A7Q9AIDNL:00000015 [INF] Request finished "HTTP/2" "POST" "https"://"localhost:7025""""/api/Employees/login""" - 302 0 null 909.4362ms (74253ad3)
+2024-11-21T16:10:16.6244686+01:00 0HN8A7Q9AIDNL:00000017 [INF] Executing endpoint '"DemandesController.GetListDemandesByUserId (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:16.6263454+01:00 0HN8A7Q9AIDNL:00000017 [INF] Route matched with "{action = \"GetListDemandesByUserId\", controller = \"Demandes\", page = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] GetListDemandesByUserId()" on controller "DemandesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:16.7164034+01:00 0HN8A7Q9AIDNL:00000017 [WRN] Compiling a query which loads related collections for more than one collection navigation, either via 'Include' or through projection, but no 'QuerySplittingBehavior' has been configured. By default, Entity Framework will use 'QuerySplittingBehavior.SingleQuery', which can potentially result in slow query performance. See https://go.microsoft.com/fwlink/?linkid=2134277 for more information. To identify the query that's triggering this warning call 'ConfigureWarnings(w => w.Throw(RelationalEventId.MultipleCollectionIncludeWarning))'. (4c53259e)
+2024-11-21T16:10:16.7399004+01:00 0HN8A7Q9AIDNL:00000017 [INF] Executed DbCommand ("12"ms) [Parameters=["@__request_Id_0='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SELECT [d].[Id], [d].[CreatedBy], [d].[CreatedDate], [d].[DemandeNumber], [d].[IsDeleted], [d].[ModifiedBy], [d].[ModifiedDate], [d].[UserId], [u].[Id], [u].[CreatedBy], [u].[CreatedDate], [u].[IsDeleted], [u].[ModifiedBy], [u].[ModifiedDate], [u].[PasswordHash], [u].[RoleId], [u].[Username], [u0].[Id], [u0].[CreatedBy], [u0].[CreatedDate], [u0].[Email], [u0].[IsDeleted], [u0].[ModifiedBy], [u0].[ModifiedDate], [u0].[Nom], [u0].[Prenom], [u0].[ServiceId], [u0].[UserId], [s].[Id], [s].[CreatedBy], [s].[CreatedDate], [s].[DivisionId], [s].[IsDeleted], [s].[ModifiedBy], [s].[ModifiedDate], [s].[Name], [d0].[Id], [d0].[CreatedBy], [d0].[CreatedDate], [d0].[DirectionId], [d0].[IsDeleted], [d0].[ModifiedBy], [d0].[ModifiedDate], [d0].[Name], [d1].[Id], [d1].[CreatedBy], [d1].[CreatedDate], [d1].[IsDeleted], [d1].[ModifiedBy], [d1].[ModifiedDate], [d1].[Name], [t0].[Id], [t0].[CreatedBy], [t0].[CreatedDate], [t0].[DemandeId], [t0].[IsDeleted], [t0].[ModifiedBy], [t0].[ModifiedDate], [t0].[StatusDemandeId], [t0].[Id0], [t0].[CreatedBy0], [t0].[CreatedDate0], [t0].[IsDeleted0], [t0].[ModifiedBy0], [t0].[ModifiedDate0], [t0].[StatusName], [t1].[Id], [t1].[CreatedBy], [t1].[CreatedDate], [t1].[DemandeId], [t1].[IsDeleted], [t1].[Livré], [t1].[ModifiedBy], [t1].[ModifiedDate], [t1].[ProduitId], [t1].[Quantité], [t1].[Id0], [t1].[CreatedBy0], [t1].[CreatedDate0], [t1].[IsDeleted0], [t1].[ModifiedBy0], [t1].[ModifiedDate0], [t1].[Name]
+FROM [Demandes] AS [d]
+INNER JOIN [Users] AS [u] ON [d].[UserId] = [u].[Id]
+LEFT JOIN [UserDetails] AS [u0] ON [u].[Id] = [u0].[UserId]
+LEFT JOIN [Services] AS [s] ON [u0].[ServiceId] = [s].[Id]
+LEFT JOIN [Divisions] AS [d0] ON [s].[DivisionId] = [d0].[Id]
+LEFT JOIN [Directions] AS [d1] ON [d0].[DirectionId] = [d1].[Id]
+OUTER APPLY (
+    SELECT [t].[Id], [t].[CreatedBy], [t].[CreatedDate], [t].[DemandeId], [t].[IsDeleted], [t].[ModifiedBy], [t].[ModifiedDate], [t].[StatusDemandeId], [s0].[Id] AS [Id0], [s0].[CreatedBy] AS [CreatedBy0], [s0].[CreatedDate] AS [CreatedDate0], [s0].[IsDeleted] AS [IsDeleted0], [s0].[ModifiedBy] AS [ModifiedBy0], [s0].[ModifiedDate] AS [ModifiedDate0], [s0].[StatusName]
+    FROM (
+        SELECT TOP(1) [h].[Id], [h].[CreatedBy], [h].[CreatedDate], [h].[DemandeId], [h].[IsDeleted], [h].[ModifiedBy], [h].[ModifiedDate], [h].[StatusDemandeId]
+        FROM [HistoriqueStatusDemandes] AS [h]
+        WHERE [d].[Id] = [h].[DemandeId]
+        ORDER BY [h].[CreatedDate] DESC
+    ) AS [t]
+    INNER JOIN [StatusDemandes] AS [s0] ON [t].[StatusDemandeId] = [s0].[Id]
+) AS [t0]
+LEFT JOIN (
+    SELECT [d2].[Id], [d2].[CreatedBy], [d2].[CreatedDate], [d2].[DemandeId], [d2].[IsDeleted], [d2].[Livré], [d2].[ModifiedBy], [d2].[ModifiedDate], [d2].[ProduitId], [d2].[Quantité], [p].[Id] AS [Id0], [p].[CreatedBy] AS [CreatedBy0], [p].[CreatedDate] AS [CreatedDate0], [p].[IsDeleted] AS [IsDeleted0], [p].[ModifiedBy] AS [ModifiedBy0], [p].[ModifiedDate] AS [ModifiedDate0], [p].[Name]
+    FROM [DemandeProduits] AS [d2]
+    INNER JOIN [Produits] AS [p] ON [d2].[ProduitId] = [p].[Id]
+) AS [t1] ON [d].[Id] = [t1].[DemandeId]
+WHERE [d].[UserId] = @__request_Id_0
+ORDER BY [d].[Id], [u].[Id], [u0].[Id], [s].[Id], [d0].[Id], [d1].[Id], [t0].[CreatedDate] DESC, [t0].[Id], [t0].[Id0], [t1].[Id]" (0723d8ff)
+2024-11-21T16:10:16.8404568+01:00 0HN8A7Q9AIDNL:00000017 [INF] Executing ViewResult, running view "DemandesListRequester". (c83d0e25)
+2024-11-21T16:10:16.8435751+01:00 0HN8A7Q9AIDNL:00000017 [INF] Executed ViewResult - view "DemandesListRequester" executed in 3.4801ms. (f66409e9)
+2024-11-21T16:10:16.8436368+01:00 0HN8A7Q9AIDNL:00000017 [INF] Executed action "DemandesController.GetListDemandesByUserId (StockManagement.Web)" in 217.2542ms (afa2e885)
+2024-11-21T16:10:16.8436902+01:00 0HN8A7Q9AIDNL:00000017 [INF] Executed endpoint '"DemandesController.GetListDemandesByUserId (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:16.8439995+01:00 0HN8A7Q9AIDNL:00000017 [WRN] Unable to configure Browser Link script injection on the response.  (ece93296)
+2024-11-21T16:10:16.8441450+01:00 0HN8A7Q9AIDNL:00000017 [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. (5302a7e1)
+2024-11-21T16:10:16.8443017+01:00 0HN8A7Q9AIDNL:00000017 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/GetListDemandesByUserId""" - 200 null "text/html; charset=utf-8" 224.1921ms (74253ad3)
+2024-11-21T16:10:16.8529689+01:00 0HN8A7Q9AIDNL:00000019 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/css/DemandesListRequester.css""" - null null (d509f86a)
+2024-11-21T16:10:16.8541713+01:00 0HN8A7Q9AIDNL:00000019 [INF] Sending file. Request path: '"/css/DemandesListRequester.css"'. Physical path: '"C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\wwwroot\css\DemandesListRequester.css"' (27b0a520)
+2024-11-21T16:10:16.8543258+01:00 0HN8A7Q9AIDNL:00000019 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/css/DemandesListRequester.css""" - 200 3142 "text/css" 1.6932ms (74253ad3)
+2024-11-21T16:10:17.8763561+01:00 0HN8A7Q9AIDNL:0000001B [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - null null (d509f86a)
+2024-11-21T16:10:17.8809431+01:00 0HN8A7Q9AIDNL:0000001B [INF] Executing endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:17.8824111+01:00 0HN8A7Q9AIDNL:0000001B [INF] Route matched with "{action = \"CreateDemande\", controller = \"Demandes\", page = \"\"}". Executing controller action with signature "Microsoft.AspNetCore.Mvc.IActionResult CreateDemande()" on controller "DemandesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:17.9318373+01:00 0HN8A7Q9AIDNL:0000001B [INF] Executed DbCommand ("2"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT [t].[Id], [t].[Name]
+FROM (
+    SELECT DISTINCT [p].[Id], [p].[CreatedBy], [p].[CreatedDate], [p].[IsDeleted], [p].[ModifiedBy], [p].[ModifiedDate], [p].[Name]
+    FROM [Produits] AS [p]
+) AS [t]" (0723d8ff)
+2024-11-21T16:10:17.9355275+01:00 0HN8A7Q9AIDNL:0000001B [INF] Executing ViewResult, running view "CreateDemande". (c83d0e25)
+2024-11-21T16:10:17.9380130+01:00 0HN8A7Q9AIDNL:0000001B [INF] Executed ViewResult - view "CreateDemande" executed in 3.2118ms. (f66409e9)
+2024-11-21T16:10:17.9380476+01:00 0HN8A7Q9AIDNL:0000001B [INF] Executed action "DemandesController.CreateDemande (StockManagement.Web)" in 55.5582ms (afa2e885)
+2024-11-21T16:10:17.9380679+01:00 0HN8A7Q9AIDNL:0000001B [INF] Executed endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:17.9381077+01:00 0HN8A7Q9AIDNL:0000001B [WRN] Unable to configure Browser Link script injection on the response.  (ece93296)
+2024-11-21T16:10:17.9381246+01:00 0HN8A7Q9AIDNL:0000001B [WRN] Unable to configure browser refresh script injection on the response. Consider manually adding '<script src="/_framework/aspnetcore-browser-refresh.js"></script>' to the body of the page. (5302a7e1)
+2024-11-21T16:10:17.9382161+01:00 0HN8A7Q9AIDNL:0000001B [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - 200 null "text/html; charset=utf-8" 62.1064ms (74253ad3)
+2024-11-21T16:10:17.9472466+01:00 0HN8A7Q9AIDNL:0000001D [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/css/CreateDemande.css""" - null null (d509f86a)
+2024-11-21T16:10:17.9484331+01:00 0HN8A7Q9AIDNL:0000001D [INF] Sending file. Request path: '"/css/CreateDemande.css"'. Physical path: '"C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\wwwroot\css\CreateDemande.css"' (27b0a520)
+2024-11-21T16:10:17.9485617+01:00 0HN8A7Q9AIDNL:0000001D [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/css/CreateDemande.css""" - 200 2292 "text/css" 1.4883ms (74253ad3)
+2024-11-21T16:10:25.3519631+01:00 0HN8A7Q9AIDNL:0000001F [INF] Request starting "HTTP/2" "POST" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - "application/x-www-form-urlencoded" 551 (d509f86a)
+2024-11-21T16:10:25.3633531+01:00 0HN8A7Q9AIDNL:0000001F [INF] Executing endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (500cc934)
+2024-11-21T16:10:25.3707060+01:00 0HN8A7Q9AIDNL:0000001F [INF] Route matched with "{action = \"CreateDemande\", controller = \"Demandes\", page = \"\"}". Executing controller action with signature "System.Threading.Tasks.Task`1[Microsoft.AspNetCore.Mvc.IActionResult] CreateDemande(StockManagement.Application.Features.Demandes.DTOs.CreateDemandeDTO)" on controller "DemandesController" ("StockManagement.Web"). (122b2fdf)
+2024-11-21T16:10:29.6298971+01:00 0HN8A7Q9AIDNL:0000001F [INF] Executed DbCommand ("2"ms) [Parameters=["@__currentYear_0='?' (DbType = Int32)"], CommandType='Text', CommandTimeout='30']"
+""SELECT COUNT(*)
+FROM [Demandes] AS [d]
+WHERE [d].[CreatedDate] IS NOT NULL AND DATEPART(year, [d].[CreatedDate]) = @__currentYear_0" (0723d8ff)
+2024-11-21T16:10:29.6370819+01:00 0HN8A7Q9AIDNL:0000001F [INF] Executed DbCommand ("1"ms) [Parameters=[""], CommandType='Text', CommandTimeout='30']"
+""SELECT TOP(1) [s].[Id], [s].[CreatedBy], [s].[CreatedDate], [s].[IsDeleted], [s].[ModifiedBy], [s].[ModifiedDate], [s].[StatusName]
+FROM [StatusDemandes] AS [s]
+WHERE [s].[StatusName] = N'En cours de traitement'" (0723d8ff)
+2024-11-21T16:10:29.7167660+01:00 0HN8A7Q9AIDNL:0000001F [ERR] Failed executing DbCommand ("7"ms) [Parameters=["@p0='?' (DbType = Guid), @p1='?' (Size = 4000), @p2='?' (DbType = DateTime2), @p3='?' (Size = 4000), @p4='?' (DbType = Boolean), @p5='?' (Size = 4000), @p6='?' (DbType = DateTime2), @p7='?' (DbType = Guid), @p8='?' (DbType = Guid), @p9='?' (Size = 4000), @p10='?' (DbType = DateTime2), @p11='?' (DbType = Guid), @p12='?' (DbType = Boolean), @p13='?' (Size = 4000), @p14='?' (DbType = DateTime2), @p15='?' (DbType = Guid)"], CommandType='Text', CommandTimeout='30']"
+""SET NOCOUNT ON;
+INSERT INTO [Demandes] ([Id], [CreatedBy], [CreatedDate], [DemandeNumber], [IsDeleted], [ModifiedBy], [ModifiedDate], [UserId])
+VALUES (@p0, @p1, @p2, @p3, @p4, @p5, @p6, @p7);
+INSERT INTO [HistoriqueStatusDemandes] ([Id], [CreatedBy], [CreatedDate], [DemandeId], [IsDeleted], [ModifiedBy], [ModifiedDate], [StatusDemandeId])
+VALUES (@p8, @p9, @p10, @p11, @p12, @p13, @p14, @p15);" (627a98df)
+2024-11-21T16:10:29.7470874+01:00 0HN8A7Q9AIDNL:0000001F [ERR] An exception occurred in the database while saving changes for context type '"StockManagement.Infrastructure.ApplicationDbContext"'."
+""Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): L'instruction INSERT est en conflit avec la contrainte FOREIGN KEY \"FK_Demandes_Users_UserId\". Le conflit s'est produit dans la base de données \"EmployeeDB\", table \"dbo.Users\", column 'Id'.
+L'instruction INSERT est en conflit avec la contrainte FOREIGN KEY \"FK_HistoriqueStatusDemandes_Demandes_DemandeId\". Le conflit s'est produit dans la base de données \"EmployeeDB\", table \"dbo.Demandes\", column 'Id'.
+L'instruction a été arrêtée.
+L'instruction a été arrêtée.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a70a9160-a69f-446a-8f15-c608eb905ca4
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)" (170f029e)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): L'instruction INSERT est en conflit avec la contrainte FOREIGN KEY "FK_Demandes_Users_UserId". Le conflit s'est produit dans la base de données "EmployeeDB", table "dbo.Users", column 'Id'.
+L'instruction INSERT est en conflit avec la contrainte FOREIGN KEY "FK_HistoriqueStatusDemandes_Demandes_DemandeId". Le conflit s'est produit dans la base de données "EmployeeDB", table "dbo.Demandes", column 'Id'.
+L'instruction a été arrêtée.
+L'instruction a été arrêtée.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a70a9160-a69f-446a-8f15-c608eb905ca4
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at StockManagement.Application.Features.Demandes.Commands.CreateDeamandeHandler.Handle(CreateDemandeCommand request, CancellationToken cancellationToken) in C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Application\Features\Demandes\Commands\CreateDemandeCommand.cs:line 73
+2024-11-21T16:10:29.7969333+01:00 0HN8A7Q9AIDNL:0000001F [INF] Executed action "DemandesController.CreateDemande (StockManagement.Web)" in 4426.1151ms (afa2e885)
+2024-11-21T16:10:29.7975299+01:00 0HN8A7Q9AIDNL:0000001F [INF] Executed endpoint '"DemandesController.CreateDemande (StockManagement.Web)"' (99874f2b)
+2024-11-21T16:10:29.8052683+01:00 0HN8A7Q9AIDNL:0000001F [ERR] An unhandled exception has occurred while executing the request. (48a46595)
+Microsoft.EntityFrameworkCore.DbUpdateException: An error occurred while saving the entity changes. See the inner exception for details.
+ ---> Microsoft.Data.SqlClient.SqlException (0x80131904): L'instruction INSERT est en conflit avec la contrainte FOREIGN KEY "FK_Demandes_Users_UserId". Le conflit s'est produit dans la base de données "EmployeeDB", table "dbo.Users", column 'Id'.
+L'instruction INSERT est en conflit avec la contrainte FOREIGN KEY "FK_HistoriqueStatusDemandes_Demandes_DemandeId". Le conflit s'est produit dans la base de données "EmployeeDB", table "dbo.Demandes", column 'Id'.
+L'instruction a été arrêtée.
+L'instruction a été arrêtée.
+   at Microsoft.Data.SqlClient.SqlCommand.<>c.<ExecuteDbDataReaderAsync>b__211_0(Task`1 result)
+   at System.Threading.Tasks.ContinuationResultTaskFromResultTask`2.InnerInvoke()
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+--- End of stack trace from previous location ---
+   at System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state)
+   at System.Threading.Tasks.Task.ExecuteWithThreadLocal(Task& currentTaskSlot, Thread threadPoolThread)
+--- End of stack trace from previous location ---
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Storage.RelationalCommand.ExecuteReaderAsync(RelationalCommandParameterObject parameterObject, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+ClientConnectionId:a70a9160-a69f-446a-8f15-c608eb905ca4
+Error Number:547,State:0,Class:16
+   --- End of inner exception stack trace ---
+   at Microsoft.EntityFrameworkCore.Update.ReaderModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Update.Internal.SqlServerModificationCommandBatch.ExecuteAsync(IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.Update.Internal.BatchExecutor.ExecuteAsync(IEnumerable`1 commandBatches, IRelationalConnection connection, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(IList`1 entriesToSave, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.ChangeTracking.Internal.StateManager.SaveChangesAsync(StateManager stateManager, Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.SqlServer.Storage.Internal.SqlServerExecutionStrategy.ExecuteAsync[TState,TResult](TState state, Func`4 operation, Func`4 verifySucceeded, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at Microsoft.EntityFrameworkCore.DbContext.SaveChangesAsync(Boolean acceptAllChangesOnSuccess, CancellationToken cancellationToken)
+   at StockManagement.Application.Features.Demandes.Commands.CreateDeamandeHandler.Handle(CreateDemandeCommand request, CancellationToken cancellationToken) in C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Application\Features\Demandes\Commands\CreateDemandeCommand.cs:line 73
+   at DemandesController.CreateDemande(CreateDemandeDTO model) in C:\Users\LENOVO\Desktop\Project\EmployeeManagement.Web\Controllers\DemandesController.cs:line 78
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ActionMethodExecutor.TaskOfIActionResultExecutor.Execute(ActionContext actionContext, IActionResultTypeMapper mapper, ObjectMethodExecutor executor, Object controller, Object[] arguments)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeActionMethodAsync>g__Awaited|12_0(ControllerActionInvoker invoker, ValueTask`1 actionResultValueTask)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeNextActionFilterAsync>g__Awaited|10_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Rethrow(ActionExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ControllerActionInvoker.<InvokeInnerFilterAsync>g__Awaited|13_0(ControllerActionInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeNextResourceFilter>g__Awaited|25_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Rethrow(ResourceExecutedContextSealed context)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeFilterPipelineAsync>g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.<InvokeAsync>g__Logged|17_1(ResourceInvoker invoker)
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.<Invoke>g__AwaitRequestTask|7_0(Endpoint endpoint, Task requestTask, ILogger logger)
+   at Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIMiddleware.Invoke(HttpContext httpContext)
+   at Swashbuckle.AspNetCore.Swagger.SwaggerMiddleware.Invoke(HttpContext httpContext, ISwaggerProvider swaggerProvider)
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Authentication.AuthenticationMiddleware.Invoke(HttpContext context)
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddlewareImpl.Invoke(HttpContext context)
+2024-11-21T16:10:29.8571681+01:00 0HN8A7Q9AIDNL:0000001F [INF] Request finished "HTTP/2" "POST" "https"://"localhost:7025""""/api/Demandes/CreateDemande""" - 500 null "text/html; charset=utf-8" 4506.5439ms (74253ad3)
+2024-11-21T16:10:29.8642807+01:00 0HN8A7Q9AIDNL:00000021 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - null null (d509f86a)
+2024-11-21T16:10:29.8642807+01:00 0HN8A7Q9AIDNL:00000023 [INF] Request starting "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - null null (d509f86a)
+2024-11-21T16:10:29.8647537+01:00 0HN8A7Q9AIDNL:00000023 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_framework/aspnetcore-browser-refresh.js""" - 200 13774 "application/javascript; charset=utf-8" 0.5634ms (74253ad3)
+2024-11-21T16:10:29.8693856+01:00 0HN8A7Q9AIDNL:00000021 [INF] Request finished "HTTP/2" "GET" "https"://"localhost:7025""""/_vs/browserLink""" - 200 null "text/javascript; charset=UTF-8" 5.3366ms (74253ad3)

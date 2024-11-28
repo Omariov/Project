@@ -53,7 +53,7 @@ namespace StockManagement.Application.Features.Demandes.Queries
                 DivisionNom = d.User.UserDetails.Service.Division.Name,
                 ServiceNom = d.User.UserDetails.Service.Name,
                 StatusDemandeNom = d.HistoriqueStatusDemandes.FirstOrDefault()?.StatusDemande.StatusName,
-
+                DemandeNumber=d.DemandeNumber,
                 LstProduitQuantiteDTOs = d.DemandeProduits.Select(dp => new ProduitQuantiteDTO
                 {
                     ProduitNom = dp.Produit.Name,

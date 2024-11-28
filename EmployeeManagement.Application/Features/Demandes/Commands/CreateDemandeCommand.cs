@@ -7,15 +7,13 @@ using StockManagement.Core.Enums;
 
 namespace StockManagement.Application.Features.Demandes.Commands
 {
-    public class CreateDeamandeCommand : IRequest<Guid>
+    public class CreateDemandeCommand : IRequest<Guid>
     {
-        public Guid UserId { get; set; }
-
-        public List<DemandeProduitDTO> ListDemandeProduitDTOs { get; set; }
+        public CreateDemandeDTO data { get; set; }
 
     }
 
-    public class CreateDeamandeHandler : IRequestHandler<CreateDeamandeCommand, Guid>
+    public class CreateDeamandeHandler : IRequestHandler<CreateDemandeCommand, Guid>
     {
         private readonly ApplicationDbContext _context;
 
@@ -24,20 +22,22 @@ namespace StockManagement.Application.Features.Demandes.Commands
             _context = context;
         }
 
-        public async Task<Guid> Handle(CreateDeamandeCommand request, CancellationToken cancellationToken)
+        public async Task<Guid> Handle(CreateDemandeCommand request, CancellationToken cancellationToken)
         {
             var demande = new Demande
             {
                 Id = Guid.NewGuid(),
-                UserId = request.UserId,
+                UserId = request.data.UserId,
                 CreatedDate = DateTime.Now 
             };
 
-            demande.DemandeProduits = request.ListDemandeProduitDTOs.Select(dto => new DemandeProduit
+            demande.DemandeProduits = request.data.AvailableProduits.Select(dto => new DemandeProduit
             {
-                ProduitId = dto.ProduitId,
-                Quantité = dto.Quantité
+                ProduitId = dto.Id,
+                Quantité = (int)dto.Quantité
             }).ToList();
+
+            
 
             int existingDemandesForYear = 0;
             int currentYear = DateTime.Now.Year;

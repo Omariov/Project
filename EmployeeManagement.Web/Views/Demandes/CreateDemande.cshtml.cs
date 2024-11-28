@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace StockManagement.Web.Views.Employee
+namespace StockManagement.Web.Views.Demandes
 {
-    public class EditModel : PageModel
+    public class CreateDemandeModel : PageModel
     {
         public void OnGet()
         {

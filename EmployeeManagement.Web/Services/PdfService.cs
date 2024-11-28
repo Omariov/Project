@@ -1,6 +1,11 @@
 ﻿using DinkToPdf;
 using DinkToPdf.Contracts;
+using MediatR;
+using StockManagement.Application.Features.Demandes.DTOs;
+using StockManagement.Application.Features.Demandes.Queries;
 using StockManagement.Application.Features.Employees.DTOs;
+using StockManagement.Infrastructure;
+using System;
 using System.Collections.Generic;
 using System.IO;
 
@@ -8,6 +13,14 @@ namespace StockManagement.Web.Services
 {
     public class PdfService
     {
+        private RazorViewToStringRenderer _razorViewToStringRenderer;
+        private IConverter _converter;
+        public PdfService(RazorViewToStringRenderer razorViewToStringRenderer, IConverter converter)
+        {
+            _razorViewToStringRenderer = razorViewToStringRenderer;
+            _converter = converter;
+        }
+
         public byte[] ExportEmployeesToPdf(List<EmployeeDto> employees)
         {
             // Générer le HTML pour la table des employés
@@ -51,5 +64,26 @@ namespace StockManagement.Web.Services
 
             return memoryStream.ToArray();
         }
+
+        public async Task<byte[]> GenerateDemandePdfAsync(GetDemandeByIdResponseDTO demande)
+        {
+            // Rendu HTML à partir de la vue Razor
+            var htmlContent = await _razorViewToStringRenderer.RenderViewToStringAsync("Demandes/DemandePDF", demande);
+
+            // Configuration du document HTML à PDF
+            var doc = new HtmlToPdfDocument
+            {
+                GlobalSettings = new GlobalSettings
+                {
+                    Orientation = Orientation.Portrait,
+                    PaperSize = PaperKind.A4,
+                },
+                Objects = { new ObjectSettings { HtmlContent = htmlContent, WebSettings = { DefaultEncoding = "utf-8" } } }
+            };
+
+            // Génération du PDF
+            return _converter.Convert(doc);
+        }
+
     }
 }

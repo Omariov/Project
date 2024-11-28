@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-namespace StockManagement.Web.Views.Employee
+namespace StockManagement.Web.Views.Demandes
 {
-    public class DetailsModel : PageModel
+    public class DemandePDFModel : PageModel
     {
         public void OnGet()
         {

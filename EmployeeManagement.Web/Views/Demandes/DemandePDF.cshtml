@@ -1,0 +1,44 @@
+﻿@model StockManagement.Application.Features.Demandes.DTOs.GetDemandeByIdResponseDTO
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demande @Model.DemandeNumber</title>
+    <style>
+        body { font-family: Arial, sans-serif; }
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
+        th { background-color: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <h1>Demande @Model.DemandeNumber</h1>
+    <p><strong>Nom :</strong> @Model.Nom</p>
+    <p><strong>Prénom :</strong> @Model.Prenom</p>
+    <p><strong>Direction :</strong> @Model.DirectionNom</p>
+    <p><strong>Division :</strong> @Model.DivisionNom</p>
+    <p><strong>Service :</strong> @Model.ServiceNom</p>
+    <p><strong>Status :</strong> @Model.StatusDemandeNom</p>
+
+    <h2>Produits demandés</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Designations</th>
+                <th>Unites</th>
+                <th>Quantités</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var produit in Model.LstProduitQuantiteDTOs)
+            {
+                <tr>
+                    <td>@produit.ProduitNom</td>
+                    <td>@produit.Unites</td>
+                    <td>@produit.Quantité</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
+</html>

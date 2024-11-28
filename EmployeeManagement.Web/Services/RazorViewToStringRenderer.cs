@@ -1,53 +1,59 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.ViewEngines;
-using Microsoft.AspNetCore.Mvc.Rendering;
-using System.IO;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc.Abstractions;
+﻿using Microsoft.AspNetCore.Mvc.Abstractions;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Microsoft.AspNetCore.Mvc.Razor;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.AspNetCore.Mvc.ViewFeatures;
+using Microsoft.AspNetCore.Mvc;
 
 namespace StockManagement.Web.Services
 {
     public class RazorViewToStringRenderer
     {
-        private readonly ICompositeViewEngine _viewEngine;
+        private readonly IRazorViewEngine _viewEngine;
+        private readonly ITempDataProvider _tempDataProvider;
         private readonly IServiceProvider _serviceProvider;
-        private readonly ITempDataDictionaryFactory _tempDataDictionaryFactory;
 
         public RazorViewToStringRenderer(
-            ICompositeViewEngine viewEngine,
-            IServiceProvider serviceProvider,
-            ITempDataDictionaryFactory tempDataDictionaryFactory)
+            IRazorViewEngine viewEngine,
+            ITempDataProvider tempDataProvider,
+            IServiceProvider serviceProvider)
         {
             _viewEngine = viewEngine;
+            _tempDataProvider = tempDataProvider;
             _serviceProvider = serviceProvider;
-            _tempDataDictionaryFactory = tempDataDictionaryFactory;
         }
 
         public async Task<string> RenderViewToStringAsync(string viewName, object model)
         {
-            var actionContext = new ActionContext(new DefaultHttpContext(), new RouteData(), new ActionDescriptor());
-            using var sw = new StringWriter();
-            var viewResult = _viewEngine.FindView(actionContext, viewName, isMainPage: false);
+            var httpContext = new DefaultHttpContext { RequestServices = _serviceProvider };
+            var actionContext = new ActionContext(httpContext, new RouteData(), new ActionDescriptor());
 
-            if (!viewResult.Success)
+            using var sw = new StringWriter();
+            var viewResult = _viewEngine.FindView(actionContext, viewName, false);
+
+            if (viewResult.View == null)
             {
-                throw new FileNotFoundException($"View {viewName} not found.");
+                throw new ArgumentNullException($"{viewName} introuvable.");
             }
 
-            var viewData = new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary())
+            var viewDictionary = new ViewDataDictionary(new EmptyModelMetadataProvider(), new ModelStateDictionary())
             {
                 Model = model
             };
 
-            // Create a TempDataDictionary using the factory
-            var tempData = _tempDataDictionaryFactory.GetTempData(actionContext.HttpContext);
-            var viewContext = new ViewContext(actionContext, viewResult.View, viewData, tempData, sw, new HtmlHelperOptions());
+            var tempData = new TempDataDictionary(actionContext.HttpContext, _tempDataProvider);
+            var viewContext = new ViewContext(
+                actionContext,
+                viewResult.View,
+                viewDictionary,
+                tempData,
+                sw,
+                new HtmlHelperOptions()
+            );
 
             await viewResult.View.RenderAsync(viewContext);
             return sw.ToString();
         }
     }
+
 }
