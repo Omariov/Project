@@ -20,12 +20,13 @@ namespace StockManagement.Infrastructure
         public DbSet<Service> Services { get; set; }
         public DbSet<Sortie> Sorties { get; set; }
         public DbSet<StatusDemande> StatusDemandes { get; set; }
-        public DbSet<StockDetail> StockDetails { get; set; }
         public DbSet<User> Users { get; set; }
         public DbSet<UserDetail> UserDetails { get; set; }
         public DbSet<DemandeProduit> DemandeProduits { get; set; }
         public DbSet<HistoriqueStatusDemande> HistoriqueStatusDemandes { get; set; }
         public DbSet<Emplacement> Emplacements { get; set; }
+        public DbSet<Region> Regions { get; set; }
+        public DbSet<SortieProduit> SortieProduits { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder) 

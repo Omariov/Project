@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using StockManagement.Infrastructure;
 
@@ -11,9 +12,11 @@ using StockManagement.Infrastructure;
 namespace StockManagement.Infrastructure.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20241204110843_M12")]
+    partial class M12
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -489,9 +492,6 @@ namespace StockManagement.Infrastructure.Migrations
                     b.Property<DateTime?>("CreatedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("DateLivraison")
-                        .HasColumnType("datetime2");
-
                     b.Property<Guid>("DemandeId")
                         .HasColumnType("uniqueidentifier");
 
@@ -504,57 +504,11 @@ namespace StockManagement.Infrastructure.Migrations
                     b.Property<DateTime?>("ModifiedDate")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("Objet")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<string>("SortieNumber")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("DemandeId");
 
                     b.ToTable("Sorties");
-                });
-
-            modelBuilder.Entity("StockManagement.Core.Entities.SortieProduit", b =>
-                {
-                    b.Property<Guid>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<string>("CreatedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("CreatedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<bool?>("IsDeleted")
-                        .HasColumnType("bit");
-
-                    b.Property<string>("ModifiedBy")
-                        .HasColumnType("nvarchar(max)");
-
-                    b.Property<DateTime?>("ModifiedDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<Guid>("ProduitId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.Property<int>("Quantité")
-                        .HasColumnType("int");
-
-                    b.Property<Guid?>("SortieId")
-                        .HasColumnType("uniqueidentifier");
-
-                    b.HasKey("Id");
-
-                    b.HasIndex("ProduitId");
-
-                    b.HasIndex("SortieId");
-
-                    b.ToTable("SortieProduits");
                 });
 
             modelBuilder.Entity("StockManagement.Core.Entities.StatusDemande", b =>
@@ -585,6 +539,43 @@ namespace StockManagement.Infrastructure.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("StatusDemandes");
+                });
+
+            modelBuilder.Entity("StockManagement.Core.Entities.StockDetail", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("CreatedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<bool>("Instock")
+                        .HasColumnType("bit");
+
+                    b.Property<bool?>("IsDeleted")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("ModifiedBy")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime?>("ModifiedDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<Guid>("ProduitId")
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("ProduitId");
+
+                    b.ToTable("StockDetails");
                 });
 
             modelBuilder.Entity("StockManagement.Core.Entities.User", b =>
@@ -794,17 +785,13 @@ namespace StockManagement.Infrastructure.Migrations
                     b.Navigation("Demande");
                 });
 
-            modelBuilder.Entity("StockManagement.Core.Entities.SortieProduit", b =>
+            modelBuilder.Entity("StockManagement.Core.Entities.StockDetail", b =>
                 {
                     b.HasOne("StockManagement.Core.Entities.Produit", "Produit")
                         .WithMany()
                         .HasForeignKey("ProduitId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.HasOne("StockManagement.Core.Entities.Sortie", null)
-                        .WithMany("SortieProduits")
-                        .HasForeignKey("SortieId");
 
                     b.Navigation("Produit");
                 });
@@ -864,11 +851,6 @@ namespace StockManagement.Infrastructure.Migrations
             modelBuilder.Entity("StockManagement.Core.Entities.Role", b =>
                 {
                     b.Navigation("Users");
-                });
-
-            modelBuilder.Entity("StockManagement.Core.Entities.Sortie", b =>
-                {
-                    b.Navigation("SortieProduits");
                 });
 
             modelBuilder.Entity("StockManagement.Core.Entities.User", b =>

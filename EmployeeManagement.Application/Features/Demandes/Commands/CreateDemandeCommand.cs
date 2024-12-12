@@ -56,7 +56,7 @@ namespace StockManagement.Application.Features.Demandes.Commands
 
 
             var statusEnCours = await _context.StatusDemandes
-                .FirstOrDefaultAsync(s => s.StatusName == StatusNameDemande.EnCoursDeTraitement, cancellationToken);
+                .FirstOrDefaultAsync(s => s.StatusName == StatusNameDemande.DemandeEnvoye, cancellationToken);
 
             if (statusEnCours == null)
                 throw new Exception("Le statut 'En cours de traitement' n'existe pas.");

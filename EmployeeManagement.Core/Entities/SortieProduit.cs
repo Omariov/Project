@@ -1,12 +1,11 @@
 ﻿namespace StockManagement.Core.Entities
 {
-    public class StockDetail : BaseEntity<Guid>
+    public class SortieProduit : BaseEntity<Guid>
     {
-        public int Quantity { get; set; }
+
         public Guid ProduitId { get; set; }
         public Produit Produit { get; set; }
-        public bool Instock { get; set; }
-
+        public int Quantité { get; set; }
 
     }
 }

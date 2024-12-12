@@ -90,24 +90,53 @@
     border-radius: 4px;
 }
 
-.btn-annuler {
-    background-color: #dc3545;
-    color: #ffffff;
-    border: none;
-    padding: 6px 12px;
-    font-size: 0.9rem;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.2s;
+.action-buttons-group {
+    display: flex;
+    gap: 10px;
 }
 
-    .btn-annuler:hover {
-        background-color: #c82333;
-        transform: scale(1.05);
-    }
+.btn-sm {
+    font-size: 0.85rem;
+    padding: 5px 10px;
+}
 
-    .btn-annuler:disabled {
+.btn-outline-success {
+    border-color: #28a745;
+    color: #28a745;
+}
+
+.btn-outline-danger {
+    border-color: #dc3545;
+    color: #dc3545;
+}
+
+.btn-outline-warning {
+    border-color: #ffc107;
+    color: #ffc107;
+}
+
+.btn-outline-success:hover {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.btn-outline-danger:hover {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+.btn-outline-warning:hover {
+    background-color: #ffc107;
+    color: #fff;
+}
+button:disabled {
+    background-color: #e0e0e0;
+    color: #999999;
+    border-color: #cccccc;
+    cursor: not-allowed;
+}
+
+    button:disabled:hover {
         background-color: #e0e0e0;
-        color: #6c757d;
-        cursor: not-allowed;
+        color: #999999;
     }

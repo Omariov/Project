@@ -1,44 +1,207 @@
 ﻿@model StockManagement.Application.Features.Demandes.DTOs.GetDemandeByIdResponseDTO
 
 <!DOCTYPE html>
-<html>
+<html lang="fr">
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Demande @Model.DemandeNumber</title>
     <style>
-        body { font-family: Arial, sans-serif; }
-        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
-        th, td { border: 1px solid #ccc; padding: 8px; text-align: left; }
-        th { background-color: #f4f4f4; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            padding: 0;
+        }
+
+        .RoyaumeName {
+            display: flex;
+            flex-direction: row;    
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+            .RoyaumeName span {
+                margin-right: 250px;
+            }
+
+                .RoyaumeName span:first-child {
+                    margin-left: 140px;
+                }
+
+        .RoyaumeLogo {
+            display: flex;
+            margin-left: 200px;
+            margin-bottom: 20px;
+        }
+
+            .RoyaumeLogo img {
+                max-width: 50%;
+                height: auto;
+                width: auto;
+            }
+
+        .LogoName {
+            display: flex;
+            flex-direction: row;
+            width: 100%;
+            box-sizing: border-box;
+            justify-content: space-between;
+            margin-bottom: 20px;
+        }
+
+            .LogoName span {
+                margin-right: 500px;
+            }
+
+                .LogoName span:last-child {
+                    margin-right: 0;
+                }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .header h1 {
+                margin: 0;
+                font-size: 24px;
+                text-transform: uppercase;
+            }
+
+            .header h2, .header h3 {
+                margin: 0;
+                font-size: 18px;
+            }
+
+        .info {
+            margin-bottom: 20px;
+        }
+
+            .info p {
+                margin: 5px 0;
+                font-size: 14px;
+            }
+
+        .table-container {
+            margin-top: 20px;
+        }
+
+            .table-container h3 {
+                text-align: center;
+                margin-bottom: 30px;
+                margin: 0;
+                font-size: 18px;
+            }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        th, td {
+            border: 1px solid #000;
+            padding: 10px;
+            text-align: left;
+            font-size: 14px;
+        }
+
+        th {
+            background-color: #f0f0f0;
+            text-align: center;
+        }
+
+        .signatures {
+            margin-top: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+            .signatures div {
+                display: inline-block;
+                width: 30%;
+                margin-top: 20px;
+            }
+
+        .Signatures-Title {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+            .Signatures-Title h2 {
+                margin-top: 30px;
+                font-size: 18px;
+            }
     </style>
 </head>
 <body>
-    <h1>Demande @Model.DemandeNumber</h1>
-    <p><strong>Nom :</strong> @Model.Nom</p>
-    <p><strong>Prénom :</strong> @Model.Prenom</p>
-    <p><strong>Direction :</strong> @Model.DirectionNom</p>
-    <p><strong>Division :</strong> @Model.DivisionNom</p>
-    <p><strong>Service :</strong> @Model.ServiceNom</p>
-    <p><strong>Status :</strong> @Model.StatusDemandeNom</p>
 
-    <h2>Produits demandés</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Designations</th>
-                <th>Unites</th>
-                <th>Quantités</th>
-            </tr>
-        </thead>
-        <tbody>
-            @foreach (var produit in Model.LstProduitQuantiteDTOs)
-            {
+    <div class="RoyaumeName">
+        <span>Royaume du Maroc</span>
+        <span>المملكة المغربية</span>
+    </div>
+    <div class="RoyaumeLogo">
+        <img src="C:/Users/LENOVO/Desktop/Project/EmployeeManagement.Web/wwwroot/images/logo1.png" alt="RoyaumeLogo" class="logo-img">
+    </div>
+    <div class="LogoName">
+        <span>DIRECTION DE LA STATISTIQUE</span>
+        <span>مديرية الاحصاء</span>
+    </div>
+
+    <div class="header">
+        <h1>Demande de Matériels et Fournitures</h1>
+        <h2>N° @Model.DemandeNumber</h2>
+    </div>
+
+
+    <div class="info">
+        <p><strong>Date de la demande :</strong> @Model.DateDemande</p>
+        <p><strong>Entité demandeur :</strong> @Model.DirectionNom</p>
+        <p><strong>Personnel demandeur :</strong> @Model.Nom @Model.Prenom</p>
+    </div>
+
+
+    <div class="table-container">
+        <h3>Produits demandés</h3>
+        <table>
+            <thead>
                 <tr>
-                    <td>@produit.ProduitNom</td>
-                    <td>@produit.Unites</td>
-                    <td>@produit.Quantité</td>
+                    <th>Désignations</th>
+                    <th>Unités</th>
+                    <th>Quantités</th>
                 </tr>
-            }
-        </tbody>
-    </table>
+            </thead>
+            <tbody>
+                @foreach (var produit in Model.LstProduitQuantiteDTOs)
+                {
+                    <tr>
+                        <td>@produit.ProduitNom</td>
+                        <td>@produit.Unites</td>
+                        <td>@produit.Quantité</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="Signatures-Title">
+        <h2>Signatures</h2>
+    </div>
+    <div class="signatures">
+        <div>
+            <span>Demandeur</span>
+            <div class="signature-line"></div>
+        </div>
+        <div>
+            <span>Responsable</span>
+            <div class="signature-line"></div>
+        </div>
+        <div>
+            <span>Approbation</span>
+            <div class="signature-line"></div>
+        </div>
+    </div>
 </body>
 </html>

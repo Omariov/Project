@@ -21,7 +21,7 @@ using StockManagement.Core.Enums;
 
 namespace StockManagement.Web.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class EmployeesController : Controller
     {
@@ -132,8 +132,18 @@ namespace StockManagement.Web.Controllers
                 };
 
                 await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(claimsIdentity), authProperties);
-
-                return RedirectToAction("GetListDemandesByUserId", "Demandes");
+                if (userRole == "1") // 1 correspond à SuperAdmin
+                {
+                    return RedirectToAction("GetAllListDemandes", "Demandes");
+                }
+                else if (userRole == "2") //Manager
+                {
+                    return RedirectToAction("GetAllListDemandes", "Demandes");
+                }
+                else if (userRole == "3") //Requester
+                {
+                    return RedirectToAction("GetListDemandesByUserId", "Demandes");
+                }
             }
 
 

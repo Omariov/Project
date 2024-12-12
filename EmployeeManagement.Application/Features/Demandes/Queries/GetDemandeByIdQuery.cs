@@ -55,6 +55,7 @@ namespace StockManagement.Application.Features.Demandes.Queries
                 ServiceNom = demande.User.UserDetails.Service.Name,
                 StatusDemandeNom = demande.HistoriqueStatusDemandes.FirstOrDefault()?.StatusDemande.StatusName,
                 DemandeNumber = demande.DemandeNumber,
+                DateDemande=demande.CreatedDate,
                 LstProduitQuantiteDTOs = demande.DemandeProduits.Select(dp => new ProduitQuantiteDemandeDTO
                 {
                     ProduitNom = dp.Produit.Name,

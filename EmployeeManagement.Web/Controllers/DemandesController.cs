@@ -7,6 +7,7 @@ using StockManagement.Application.Features.Demandes.Commands;
 using StockManagement.Application.Features.Demandes.DTOs;
 using StockManagement.Application.Features.Demandes.Queries;
 using StockManagement.Application.Features.Employees.Queries;
+using StockManagement.Application.Features.Roles.Queries;
 using StockManagement.Core.Entities;
 using StockManagement.Infrastructure;
 using StockManagement.Web.Services;
@@ -15,7 +16,7 @@ using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
-[Route("api/[controller]")]
+[Route("[controller]")]
 [ApiController]
 public class DemandesController : Controller
 {
@@ -48,6 +49,35 @@ public class DemandesController : Controller
 
         return View("DemandesListRequester", demandes);
     }
+
+    [Authorize]
+    [HttpGet("GetAllListDemandes")]
+    public async Task<IActionResult> GetAllListDemandes()
+    {
+        var userRoleString = User.FindFirst(ClaimTypes.Role)?.Value;
+        if (!int.TryParse(userRoleString, out int userRole))
+        {
+            return View("AccessDenied");
+        }
+/*
+        var queryRole = new GetRolesQuery();
+        var roles = await _mediator.Send(queryRole);
+
+        var role = roles.FirstOrDefault(a => a.Id == userRole);
+        string roleName = role?.Name ?? "Unknown";*/
+
+        if (userRole == 1 || userRole==2) 
+        {
+            var query = new GetAllListDemandesQuery();
+            var demandes = await _mediator.Send(query);
+            return View("DemandesList", demandes);
+        }
+        else
+        {
+            return View("AccessDenied");
+        }
+    }
+
 
     [Authorize]
     [HttpGet("CreateDemande")]
@@ -129,7 +159,6 @@ public class DemandesController : Controller
             return NotFound("Demande introuvable");
         }
 
-        // Convertir la demande en PDF
         var pdfBytes = await _pdfService.GenerateDemandePdfAsync(demande);
 
         return File(pdfBytes, "application/pdf", $"Demande_{demande.DemandeNumber}.pdf");

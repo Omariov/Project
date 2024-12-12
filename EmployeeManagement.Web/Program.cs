@@ -66,10 +66,18 @@ app.UseAuthorization();
 app.UseSwagger();
 app.UseSwaggerUI(c =>
 {
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Employee Management API V1");
+    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Stock Management API V1");
     c.RoutePrefix = "swagger";
 });
-
+app.MapGet("/index.html", context =>
+{
+    context.Response.Redirect("/employees");
+    return Task.CompletedTask;
+}); app.MapGet("/index", context =>
+{
+    context.Response.Redirect("/employees");
+    return Task.CompletedTask;
+});
 app.MapGet("/", context =>
 {
     context.Response.Redirect("/employees");

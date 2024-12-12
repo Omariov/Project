@@ -10,21 +10,20 @@ using System.Linq;
 
 namespace StockManagement.Application.Features.Demandes.Queries
 {
-    public class GetListDemandesByUserIdQuery : IRequest<List<GetListDemandesByUserIdResponseDTO>>
+    public class GetAllListDemandesQuery : IRequest<List<GetAllListDemandesResponseDTO>>
     {
-        public Guid Id { get; set; }
     }
 
-    public class GetListDemandesByUserIdHandler : IRequestHandler<GetListDemandesByUserIdQuery, List<GetListDemandesByUserIdResponseDTO>>
+    public class GetAllListDemandesQueryHandler : IRequestHandler<GetAllListDemandesQuery, List<GetAllListDemandesResponseDTO>>
     {
         private readonly ApplicationDbContext _context;
 
-        public GetListDemandesByUserIdHandler(ApplicationDbContext context)
+        public GetAllListDemandesQueryHandler(ApplicationDbContext context)
         {
             _context = context;
         }
 
-        public async Task<List<GetListDemandesByUserIdResponseDTO>> Handle(GetListDemandesByUserIdQuery request, CancellationToken cancellationToken)
+        public async Task<List<GetAllListDemandesResponseDTO>> Handle(GetAllListDemandesQuery request, CancellationToken cancellationToken)
         {
             var demandes = await _context.Demandes
                 .Include(d => d.User)
@@ -36,15 +35,14 @@ namespace StockManagement.Application.Features.Demandes.Queries
                     .ThenInclude(h => h.StatusDemande)
                 .Include(d => d.DemandeProduits)
                     .ThenInclude(dp => dp.Produit)
-                .Where(d => d.UserId == request.Id)
                 .ToListAsync(cancellationToken);
             var DemandeTris = demandes.OrderByDescending(a => a.CreatedDate);
             if (DemandeTris == null || !DemandeTris.Any())
             {
-                return new List<GetListDemandesByUserIdResponseDTO>(); 
+                return new List<GetAllListDemandesResponseDTO>();
             }
 
-            var result = DemandeTris.Select(d => new GetListDemandesByUserIdResponseDTO
+            var result = DemandeTris.Select(d => new GetAllListDemandesResponseDTO
             {
                 Id = d.Id,
                 Nom = d.User.UserDetails.Nom,
@@ -53,8 +51,8 @@ namespace StockManagement.Application.Features.Demandes.Queries
                 DivisionNom = d.User.UserDetails.Service.Division.Name,
                 ServiceNom = d.User.UserDetails.Service.Name,
                 StatusDemandeNom = d.HistoriqueStatusDemandes.FirstOrDefault()?.StatusDemande.StatusName,
-                DemandeNumber=d.DemandeNumber,
-                LstProduitQuantiteDTOs = d.DemandeProduits.Select(dp => new ProduitQuantiteDTO
+                DemandeNumber = d.DemandeNumber,
+                LstAllProduitQuantiteDTOs = d.DemandeProduits.Select(dp => new AllProduitQuantiteDTO
                 {
                     ProduitNom = dp.Produit.Name,
                     Quantité = dp.Quantité
